@@ -1,0 +1,22 @@
+{% load i18n wagtailroutablepage_tags blogapp_tags %}
+
+    <div class="aside-filter-item filter-categories -mg_bot50">
+
+        <div id="accordion">
+
+            <h3>Categories</h3>
+
+                {% for category in categories %}
+
+                        <a href="{% routablepageurl blog_index_page "post_by_category" category.slug %}" class="btn btn-primary btn-sm" role="button" style="padding: 5px 8px;;margin:3px 1px"><span style="font-size:10pt">{{ category.name }}</span></a>
+
+                {% empty %}
+                    {% trans 'No categories yet' %}
+
+                {% endfor %}
+
+
+            {% tags_list %}
+
+        </div>
+    </div>

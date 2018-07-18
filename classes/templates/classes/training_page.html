@@ -1,0 +1,510 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailroutablepage_tags wagtailimages_tags %}
+
+{% block body_class %}template-trainingpage{% endblock %}
+
+{% block content %}
+
+
+
+    <main class="main">
+			<section class="section-classes-single -mg_top30">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1 col-md-12">
+							<div class="classes-single-item -single">
+								<div class="img-wrap">
+
+                                    {% if page.header_image %}
+											{% image page.header_image max-1000x500 as header_image %}
+											<img src="{{ header_image.url }}" alt="">
+									{% endif %}
+
+								</div>
+								<div class="item-description">
+									<div class="_header">
+										<div class="header-title">
+											<h4 class="title">{{ page.title }}</h4>
+											<p class="subtitle">{{ page.sub_title }}</p>
+										</div>
+									</div>
+									<div class="_body">
+										{{ page.body }}
+									</div>
+								</div>
+                                <br><br>
+                                <p style="text-align:right;"><a href="{{ page.get_parent.url }}">Check out other classes</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-coaches_inner">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1 col-md-12">
+							<h2 class="lined"> Fitness coaches</h2>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="coach-item">
+										<div class="coach-img_wrapper">
+											<a class="coach-img" href="personal-page-coach.html">
+												<img src="./images/coach_person_02.png" alt="">
+											</a>
+										</div>
+										<div class="coach-content">
+											<a class="coach-title" href="personal-page-coach.html">Isabel Horny</a>
+											<span class="coach-subtitle">yoga intructor</span>
+											<p class="coach-descr">Commonly called Power yoga, Ashtanga is definitely physically demanding. It’s probably best suited for an ex-athlete or </p>
+											<div class="coach-content_bot">
+												<ul class="list-social">
+													<li>
+														<a class="fa fa-facebook" href="#?"> </a>
+													</li>
+													<li>
+														<a class="fa fa-twitter" href="#?"></a>
+													</li>
+												</ul>
+												<a class="link-view" href="personal-page-coach.html">
+													<span>View detail </span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="coach-item">
+										<div class="coach-img_wrapper">
+											<a class="coach-img" href="personal-page-coach.html">
+												<img src="./images/coach_person_01.png" alt="">
+											</a>
+										</div>
+										<div class="coach-content">
+											<a class="coach-title" href="personal-page-coach.html">Isabel Horny</a>
+											<span class="coach-subtitle">yoga intructor</span>
+											<p class="coach-descr">Commonly called Power yoga, Ashtanga is definitely physically demanding. It’s probably best suited for an ex-athlete or </p>
+											<div class="coach-content_bot">
+												<ul class="list-social">
+													<li>
+														<a class="fa fa-facebook" href="#?"> </a>
+													</li>
+													<li>
+														<a class="fa fa-twitter" href="#?"></a>
+													</li>
+												</ul>
+												<a class="link-view" href="personal-page-coach.html">
+													<span>View detail </span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="coach-item">
+										<a class="coach-img_wrapper" href="personal-page-coach.html">
+											<div class="coach-img">
+												<img src="./images/coach_person_02.png" alt="">
+											</div>
+										</a>
+										<div class="coach-content">
+											<a class="coach-title" href="personal-page-coach.html">Isabel Horny</a>
+											<span class="coach-subtitle">yoga intructor</span>
+											<p class="coach-descr">Commonly called Power yoga, Ashtanga is definitely physically demanding. It’s probably best suited for an ex-athlete or </p>
+											<div class="coach-content_bot">
+												<ul class="list-social">
+													<li>
+														<a class="fa fa-facebook" href="#?"> </a>
+													</li>
+													<li>
+														<a class="fa fa-twitter" href="#?"></a>
+													</li>
+												</ul>
+												<a class="link-view" href="personal-page-coach.html">
+													<span>View detail </span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="coach-item">
+										<a class="coach-img_wrapper" href="personal-page-coach.html">
+											<div class="coach-img">
+												<img src="./images/coach_person_01.png" alt="">
+											</div>
+										</a>
+										<div class="coach-content">
+											<a class="coach-title" href="personal-page-coach.html">Isabel Horny</a>
+											<span class="coach-subtitle">yoga intructor</span>
+											<p class="coach-descr">Commonly called Power yoga, Ashtanga is definitely physically demanding. It’s probably best suited for an ex-athlete or </p>
+											<div class="coach-content_bot">
+												<ul class="list-social">
+													<li>
+														<a class="fa fa-facebook" href="#?"> </a>
+													</li>
+													<li>
+														<a class="fa fa-twitter" href="#?"></a>
+													</li>
+												</ul>
+												<a class="link-view" href="personal-page-coach.html">
+													<span>View detail</span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-timetable">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="offset-lg-1 col-lg-10 col-md-12">
+							<div class="section-heading d-flex justify-content-between align-items-center -inner_nav">
+								<h2 class="lined">Schedule</h2>
+								<nav class="nav" id="timetable-filter">
+									<a class="nav-link active" href="#f-clear">All Classes</a>
+									<a class="nav-link" href="#f-beginners">Beginners</a>
+									<a class="nav-link" href="#f-adv">Advanced</a>
+									<a class="nav-link" href="#f-pro">Pro</a>
+									<a class="nav-link" href="#f-pregnant">For pregnant</a>
+									<a class="nav-link" href="#f-fitness">Woman yoga</a>
+									<a class="nav-link" href="#f-cycling">Kids yoga</a>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="offset-lg-1 col-lg-10 col-md-12">
+							<div class="timetable-wrap -default -inner">
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Monday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-beginners">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell"></div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-pro">
+											<div class="item-body">
+												<span class="time">11.00</span>
+												<span class="naming">TRX</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-weight_loss">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Pilates</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Tuesday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-pro">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Stretching</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-fitness">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Crossfit</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-cycling">
+											<div class="item-body">
+												<span class="time">11.00</span>
+												<span class="naming">Cycling</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-pilates">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Aerobics</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Wednesday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-cycling">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-gym">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Weight Loss</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell"></div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-fitness">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Thursday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-pilates">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-gym">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Dancing</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-stretching">
+											<div class="item-body">
+												<span class="time">11.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-fitness">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Zumba</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Friday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-weight_loss">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Stretching</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-aerobics">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Crossfit</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-cycling">
+											<div class="item-body">
+												<span class="time">11.00</span>
+												<span class="naming">Cycling</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-pilates">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Aerobics</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Saturday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-stretching">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-Aerobics">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Weight Loss</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell"></div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-weight_loss">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="timetable-col">
+									<div class="timetable-title">
+										<h5>Sunday</h5>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-adv">
+											<div class="item-body">
+												<span class="time">8.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-cycling">
+											<div class="item-body">
+												<span class="time">10.00</span>
+												<span class="naming">Dancing</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-adv">
+											<div class="item-body">
+												<span class="time">11.00</span>
+												<span class="naming">Yoga</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+									<div class="timetable-cell">
+										<div class="timetable-item f-crossfit">
+											<div class="item-body">
+												<span class="time">16.00</span>
+												<span class="naming">Zumba</span>
+											</div>
+											<div class="item-footer">
+												<span class="coach">Ashley Fletcher</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+
+
+
+{% endblock %}

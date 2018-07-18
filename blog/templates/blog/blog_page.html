@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags blogapp_tags i18n %}
+
+{% block body_class %}template-blogpage {% endblock %}
+
+{% block content %}
+
+
+    <main class="main">
+
+			{% image blog_index_page.specific.header_image original as my_image %}
+			<section class="section-top-single" style="background-image:url({{ my_image.url }})">
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1 col-md-12">
+							<h2 class="lined">blog page</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="section-blog_page">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1 col-md-12">
+							<div class="row">
+
+                                <div class="col-md-8">
+									<h2 class="blog-title">{{ page.title }}</h2>
+									<div class="blog-header_top">
+
+										<div class="blog-header_top_date">
+											<i class="fa fa-clock-o"></i>
+											<span> {{ page.date | date:'d.m.Y' }}</span>
+										</div>
+									</div>
+									<div class="blog-content">
+
+										 {% if page.header_image %}
+											{% image page.header_image max-1000x500 as header_image %}
+											<img class="blog-img" src="{{ header_image.url }}" alt="">
+											<br>
+										{% endif %}
+
+										{{ page.body|richtext }}
+
+									</div>
+
+									<div class="_footer">
+												<a class="link" href="{{ page.get_parent.url }}">
+													<span>Return to blog</span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+									</div>
+
+								</div>
+								<div class="col-md-4">
+
+									{% categories_list %}
+
+
+									<div class="aside-latest_post">
+										<h5 class="aside-title">LATEST POSTS</h5>
+
+										{% for post in latest_posts %}
+										<div class="blog-item -grey">
+											<div class="_header">
+												<span class="date">{{ post.specific.date | date:'d.m.Y' }}</span>
+											</div>
+											<div class="_body">
+												<a class="title" href="{% pageurl post %}">{{ post.title}}</a>
+												<p>{{ post.specific.intro }}</p>
+											</div>
+											<div class="_footer">
+												<a class="link" href="{% pageurl post %}">
+													<span>Read more</span>
+													<i class="fa fa-caret-right"></i>
+												</a>
+											</div>
+										</div>
+
+										{% endfor %}
+
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+
+
+
+
+
+{% endblock %}
