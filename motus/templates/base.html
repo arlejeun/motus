@@ -16,7 +16,7 @@
         </title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/pages/_theme04.css' %}">
@@ -33,8 +33,55 @@
         {% endblock %}
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="{% block body_class %}{% endblock %} theme04">
         {% wagtailuserbar %}
+
+        <header class="header">
+			<nav class="navbar navbar-toggleable-md">
+				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/">
+					<img src="{% static 'images/motusfit_logo.jpg' %}" alt="">
+				</a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent" aria-expanded="false">
+					<ul class="navbar-nav m-auto" id="navbar-scrollspy">
+						<li class="nav-item active">
+							<a class="nav-link active" href="/#to-top">Main</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-classes">Classes</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-advantage">Advantages</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-coaches">Coaches</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-gallery">Gallery</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-testimonials">Testimonials</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-blog">Blog</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-schedule">Schedule</a>
+						</li>
+
+                        <li class="nav-item">
+							<a class="nav-link" href="/#to-contact">Contacts</a>
+						</li>
+					</ul>
+
+				</div>
+			</nav>
+		</header>
 
         {% block content %}{% endblock %}
 

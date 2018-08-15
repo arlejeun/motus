@@ -1,5 +1,9 @@
+$primary:			map-get($pallete, home04);
+$font-custom-reg:	'Gilroy', sans-serif;
+$font-custom-light:	'Gilroy', sans-serif;
+
 .theme04 {
-	font-family: 'Gilroy', sans-serif;
+	font-family: $font-custom-light;
 	color: #000;
 	& .slider-content ._header a{
 		color: #000;
@@ -13,30 +17,30 @@
 	}
 	& .link.-black{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	.section-gallery.-home04 .title-link .link{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	.header.dark .search-link .fa, .header.dark .navbar-toggleable-md .navbar-nav .nav-link{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .search-link .fa{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 
 		}
 	}
 	& .btn-search{
-		background: #2ce41f;
+		background: $primary;
 		transition: all .3s;
 		&:hover{
-			background: darken(#2ce41f , 10%);
+			background: darken($primary , 10%);
 		}
 	}
 	& .slider-stories-home04 .social a{
@@ -47,17 +51,17 @@
 	& .section-testimonials.-home04 .slider-stories.slider-stories-home02 .social a,
 	& .section-testimonials.-home04 .title-link .link{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .panel.-step .link{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .list-default a{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .slider-coaches-home04 .social a{
@@ -68,39 +72,40 @@
 	& .btn-link.btn-ico{
 		color: #000;
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .card.-product-wide .price{
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 	}
 	& .card.-product-wide .link{
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 
 	}
 	& .blog-item ._body{
-		padding: 15px 0;
+		padding: 15px 0 0;
+
 	}
 	& .blog-item ._footer a{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 			& i.fa {
-				color: #2ce41f;
+				color: $primary;
 				transition: all .3s;
 			}
 		}
 	}
 	& .stories .social a{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	& .section-testimonials-single.-home04 a{
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	.classes-single-item {
@@ -108,7 +113,7 @@
 			& .social{
 				& a {
 					&:hover{
-						color: darken(#2ce41f , 20%);
+						color: darken($primary , 20%);
 					}
 				}
 			}
@@ -124,34 +129,34 @@
 		    }
 		}
 		&:hover{
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 	h1, h2, h4, h5,
 	.h5 {
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 	}
 
 	.navbar-toggleable-md .navbar-nav .nav-link {
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 	}
 
 	.list-schedule > li:hover .time:after {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.btn {
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 	}
 	.btn-secondary{
-		background: #2ce41f;
-		border-color: #2ce41f;
+		background: $primary;
+		border-color: $primary;
 		color: #000;
 		&:hover,
 		&:focus,
 		&:focus:active {
-			background-color: darken(#2ce41f , 10%);
-			border-color: darken(#2ce41f , 10%);
+			background-color: darken($primary , 10%);
+			border-color: darken($primary , 10%);
 			color: #000;
 		}
 	}
@@ -163,73 +168,73 @@
 		&:hover,
 		&:focus,
 		&:focus:active {
-			background-color: #2ce41f;
-			border-color: #2ce41f;
+			background-color: $primary;
+			border-color: $primary;
 			color: #000;
 		}
 	}
 
 	.lined:before {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.navbar-toggleable-md .navbar-nav .nav-link.active, .navbar-toggleable-md .navbar-nav .nav-link:hover {
-		box-shadow: 0 -4px 0 #2ce41f inset;
+		box-shadow: 0 -4px 0 $primary inset;
 	}
 
 
 	.timetable-col.active .timetable-title {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.section-coaches {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.timetable-wrap.-simple .timetable-item:hover {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.panel.-step .panel-heading .num {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.slider-stories .author {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.blog-item .title:after {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.list-location > li .title:before {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.section-contact .social a:hover {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.section-coaches-single .classes-single-item ._header .title {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.section-coaches-single.-dark .social a {
-		color: #2ce41f;
+		color: $primary;
 	}
 
 	.nav-tabs.-primary .nav-link:after {
-		background-color: #2ce41f;
+		background-color: $primary;
 	}
 
 	.nav-tabs.-primary .nav-link,
 	.shop-info-content .old-price,
 	.shop-info-content .new-price {
-		font-family: 'Gilroy', sans-serif;
+		font-family: $font-custom-reg;
 	}
 }
 
@@ -249,11 +254,11 @@
 		}
 
 		.link {
-			font-family: 'Gilroy', sans-serif;
+			font-family: $font-custom-reg;
 		}
 
 		.slider-content ._header h4 {
-			color: #2ce41f;
+			color: $primary;
 		}
 	}
 }
@@ -262,7 +267,7 @@
 	&.-home04 {
 		.title-link .link {
 			color: #fff;
-			font-family: 'Gilroy', sans-serif;
+			font-family: $font-custom-reg;
 		}
 	}
 }
@@ -272,11 +277,11 @@
 		 .header.dark .navbar-toggleable-md .navbar-nav .nav-link{
 			&:hover{
 				color: #fff;
-				background: #2ce41f;
+				background: $primary;
 			}
 		}
 		.navbar-toggleable-md .navbar-nav .nav-link.active{
-			background: #2ce41f;
+			background: $primary;
 		}
 	}
 }

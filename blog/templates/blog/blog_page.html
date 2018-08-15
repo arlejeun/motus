@@ -37,6 +37,8 @@
 									</div>
 									<div class="blog-content">
 
+										<p>{{ page.intro}}</p>
+
 										 {% if page.header_image %}
 											{% image page.header_image max-1000x500 as header_image %}
 											<img class="blog-img" src="{{ header_image.url }}" alt="">

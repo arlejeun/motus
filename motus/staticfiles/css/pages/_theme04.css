@@ -1,9 +1,5 @@
-$primary:			map-get($pallete, home04);
-$font-custom-reg:	'Gilroy', sans-serif;
-$font-custom-light:	'Gilroy', sans-serif;
-
 .theme04 {
-	font-family: $font-custom-light;
+	font-family: 'Gilroy', sans-serif;
 	color: #000;
 	& .slider-content ._header a{
 		color: #000;
@@ -17,30 +13,30 @@ $font-custom-light:	'Gilroy', sans-serif;
 	}
 	& .link.-black{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	.section-gallery.-home04 .title-link .link{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	.header.dark .search-link .fa, .header.dark .navbar-toggleable-md .navbar-nav .nav-link{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .search-link .fa{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 
 		}
 	}
 	& .btn-search{
-		background: $primary;
+		background: #2ce41f;
 		transition: all .3s;
 		&:hover{
-			background: darken($primary , 10%);
+			background: darken(#2ce41f , 10%);
 		}
 	}
 	& .slider-stories-home04 .social a{
@@ -51,17 +47,17 @@ $font-custom-light:	'Gilroy', sans-serif;
 	& .section-testimonials.-home04 .slider-stories.slider-stories-home02 .social a,
 	& .section-testimonials.-home04 .title-link .link{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .panel.-step .link{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .list-default a{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .slider-coaches-home04 .social a{
@@ -72,39 +68,41 @@ $font-custom-light:	'Gilroy', sans-serif;
 	& .btn-link.btn-ico{
 		color: #000;
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .card.-product-wide .price{
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 	}
 	& .card.-product-wide .link{
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 
 	}
+
 	& .blog-item ._body{
-		padding: 15px 0;
+		padding: 15px 0 0;
 	}
+
 	& .blog-item ._footer a{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 			& i.fa {
-				color: $primary;
+				color: #2ce41f;
 				transition: all .3s;
 			}
 		}
 	}
 	& .stories .social a{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	& .section-testimonials-single.-home04 a{
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	.classes-single-item {
@@ -112,7 +110,7 @@ $font-custom-light:	'Gilroy', sans-serif;
 			& .social{
 				& a {
 					&:hover{
-						color: darken($primary , 20%);
+						color: darken(#2ce41f , 20%);
 					}
 				}
 			}
@@ -128,34 +126,34 @@ $font-custom-light:	'Gilroy', sans-serif;
 		    }
 		}
 		&:hover{
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 	h1, h2, h4, h5,
 	.h5 {
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 	}
 
 	.navbar-toggleable-md .navbar-nav .nav-link {
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 	}
 
 	.list-schedule > li:hover .time:after {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.btn {
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 	}
 	.btn-secondary{
-		background: $primary;
-		border-color: $primary;
+		background: #2ce41f;
+		border-color: #2ce41f;
 		color: #000;
 		&:hover,
 		&:focus,
 		&:focus:active {
-			background-color: darken($primary , 10%);
-			border-color: darken($primary , 10%);
+			background-color: darken(#2ce41f , 10%);
+			border-color: darken(#2ce41f , 10%);
 			color: #000;
 		}
 	}
@@ -167,73 +165,73 @@ $font-custom-light:	'Gilroy', sans-serif;
 		&:hover,
 		&:focus,
 		&:focus:active {
-			background-color: $primary;
-			border-color: $primary;
+			background-color: #2ce41f;
+			border-color: #2ce41f;
 			color: #000;
 		}
 	}
 
 	.lined:before {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.navbar-toggleable-md .navbar-nav .nav-link.active, .navbar-toggleable-md .navbar-nav .nav-link:hover {
-		box-shadow: 0 -4px 0 $primary inset;
+		box-shadow: 0 -4px 0 #2ce41f inset;
 	}
 
 
 	.timetable-col.active .timetable-title {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.section-coaches {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.timetable-wrap.-simple .timetable-item:hover {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.panel.-step .panel-heading .num {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.slider-stories .author {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.blog-item .title:after {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.rating > input:checked ~ label, .rating:not(:checked) > label:hover, .rating:not(:checked) > label:hover ~ label {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.list-location > li .title:before {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.section-contact .social a:hover {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.section-coaches-single .classes-single-item ._header .title {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.section-coaches-single.-dark .social a {
-		color: $primary;
+		color: #2ce41f;
 	}
 
 	.nav-tabs.-primary .nav-link:after {
-		background-color: $primary;
+		background-color: #2ce41f;
 	}
 
 	.nav-tabs.-primary .nav-link,
 	.shop-info-content .old-price,
 	.shop-info-content .new-price {
-		font-family: $font-custom-reg;
+		font-family: 'Gilroy', sans-serif;
 	}
 }
 
@@ -253,11 +251,11 @@ $font-custom-light:	'Gilroy', sans-serif;
 		}
 
 		.link {
-			font-family: $font-custom-reg;
+			font-family: 'Gilroy', sans-serif;
 		}
 
 		.slider-content ._header h4 {
-			color: $primary;
+			color: #2ce41f;
 		}
 	}
 }
@@ -266,7 +264,7 @@ $font-custom-light:	'Gilroy', sans-serif;
 	&.-home04 {
 		.title-link .link {
 			color: #fff;
-			font-family: $font-custom-reg;
+			font-family: 'Gilroy', sans-serif;
 		}
 	}
 }
@@ -276,11 +274,11 @@ $font-custom-light:	'Gilroy', sans-serif;
 		 .header.dark .navbar-toggleable-md .navbar-nav .nav-link{
 			&:hover{
 				color: #fff;
-				background: $primary;
+				background: #2ce41f;
 			}
 		}
 		.navbar-toggleable-md .navbar-nav .nav-link.active{
-			background: $primary;
+			background: #2ce41f;
 		}
 	}
 }

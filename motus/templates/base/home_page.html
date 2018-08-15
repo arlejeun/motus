@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailcore_tags %}
+
+{% load wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags %}
 
 {% block content %}
 
@@ -163,7 +164,8 @@
 						</div>
 					</div>
 				</section>
-				<section class="section-coaches -home04" id="to-coaches">
+
+                <section class="section-coaches -home04" id="to-coaches">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="offset-lg-1 col-lg-10 col-md-12">
@@ -228,8 +230,372 @@
 						</div>
 					</div>
 				</section>
+
 			</div>
-			<section class="section-timetable -home04" id="to-schedule">
+
+			<section class="section-gallery -home04" id="to-gallery">
+				<div class="container-fluid">
+					<div class="section-heading text-center">
+						<h2 class="lined -bot d-inline-block">our gallery</h2>
+					</div>
+					<div class="gallery-filter nav-simple">
+						<nav class="nav justify-content-center nav-list" id="gallery-filter">
+							<a class="nav-link active" href="javascript:void(0);" data-group="all">All</a>
+							<a class="nav-link" href="javascript:void(0);" data-group="trainers">Trainers</a>
+							<a class="nav-link" href="javascript:void(0);" data-group="rooms">Rooms</a>
+							<a class="nav-link" href="javascript:void(0);" data-group="classes">Classes</a>
+							<a class="nav-link" href="javascript:void(0);" data-group="events">Events</a>
+							<a class="nav-link" href="javascript:void(0);" data-group="members">Members</a>
+						</nav>
+						<div class="title-link">
+							<a class="link" href="gallery-04.html">
+								<span>View all photos</span>
+								<i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="my-shuffle-container gallery-simple-hover" id="gallery-grid">
+					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-09.jpg" data-groups="[&quot;members&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+						<div class="img-wrap">
+							<img src="./images/img-classes-09.jpg" alt="">
+						</div>
+						<div class="gallery-caption">
+							<span class="naming">Stretching</span>
+							<span class="coach">with Ashley Fletcher</span>
+						</div>
+					</a>
+					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-10.jpg" data-groups="[&quot;rooms&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+						<div class="img-wrap">
+							<img src="./images/img-classes-10.jpg" alt="">
+						</div>
+						<div class="gallery-caption">
+							<span class="naming">Stretching</span>
+							<span class="coach">with Ashley Fletcher</span>
+						</div>
+					</a>
+					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-12.jpg" data-groups="[&quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+						<div class="img-wrap">
+							<img src="./images/img-classes-12.jpg" alt="">
+						</div>
+						<div class="gallery-caption">
+							<span class="naming">Stretching</span>
+							<span class="coach">with Ashley Fletcher</span>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<section class="section-testimonials -home04" id="to-testimonials">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="section-heading d-flex justify-content-between align-items-center">
+								<h2 class="lined -bot">Testimonials</h2>
+								<div class="title-link">
+									<a class="link" href="testimonials-02.html">
+										<span>View all Testimonials</span>
+										<i class="fa fa-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="slider-stories slider-stories-home02">
+								<div>
+									<div class="item">
+										<div class="item-aside">
+											<div class="img-wrap">
+												<img src="images/photo-01.png" alt="">
+											</div>
+										</div>
+										<div class="item-content">
+											<h4 class="author">Jane Doe</h4>
+											<div class="social">
+												<a class="fa fa-facebook" href="#?"></a>
+												<a class="fa fa-twitter" href="#?"></a>
+											</div>
+											<div class="description">
+												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+													animi expedita distinctio. Nam libero tempore, cum</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<div class="item-aside">
+											<div class="img-wrap">
+												<img src="images/photo-01.png" alt="">
+											</div>
+										</div>
+										<div class="item-content">
+											<h4 class="author">Jane Doe</h4>
+											<div class="social">
+												<a class="fa fa-facebook" href="#?"></a>
+												<a class="fa fa-twitter" href="#?"></a>
+											</div>
+											<div class="description">
+												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+													animi expedita distinctio. Nam libero tempore, cum</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<div class="item-aside">
+											<div class="img-wrap">
+												<img src="images/photo-01.png" alt="">
+											</div>
+										</div>
+										<div class="item-content">
+											<h4 class="author">Jane Doe</h4>
+											<div class="social">
+												<a class="fa fa-facebook" href="#?"></a>
+												<a class="fa fa-twitter" href="#?"></a>
+											</div>
+											<div class="description">
+												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+													animi expedita distinctio. Nam libero tempore, cum</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            {% if page.featured_section_2 %}
+
+            <section class="section-blog -home04" id="to-blog">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+						<div class="col-md-12 col-lg-10 offset-lg-1">
+
+                            <div class="section-heading d-flex justify-content-between align-items-center">
+                                <h2 class="lined -bot">{{ page.featured_section_2_title }}</h2>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-10 offset-lg-1">
+
+                            <div class="my-shuffle-container grid-custom-wrapper" id="blog-grid">
+
+                                {% for post in page.featured_section_2.specific.children|slice:"3" %}
+
+                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+                                    <div class="blog-item -default -no-shadow">
+                                        <div class="_header">
+                                            <a class="img-wrap relative" href="{% pageurl post %}">
+                                                {% if post.specific.header_image %}
+                                                            {% image post.header_image max-500x200 as header_image %}
+                                                                <img src="{{ header_image.url }}" alt="">
+                                                {% endif %}
+                                                <h4 class="title -bottom">{{ post.title }}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="_body">
+                                            <p class="descr">{{ post.specific.intro }}</p>
+                                        </div>
+                                        <div class="_footer">
+                                            <a class="link" href="{% pageurl post %}">
+                                                <span>Read more</span>
+                                                <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+
+
+						</div>
+
+
+					</div>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-12 text-center" style="margin-top:25px">
+							<a class="btn btn-secondary" href="{% pageurl page.featured_section_2 %}">
+								<span>More stories..</span>
+								<i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+
+                </div>
+			</section>
+
+            {% endif %}
+
+            <section class="section-stories -home04" id="to-stories">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="section-heading">
+								<h2 class="lined -bot">SUCCESS STORIES</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<div class="slider-stories-home04">
+								<div>
+									<div class="item">
+										<div class="item-half">
+											<div class="d-flex">
+												<div class="img-wrap">
+													<img src="images/photo-01.png" alt="">
+												</div>
+												<div class="info">
+													<p class="author">Jane Doe</p>
+													<p class="quote">Five months later, I couldn’t be happier with the results.</p>
+													<div class="social">
+														<a class="fa fa-facebook" href="#?"></a>
+														<a class="fa fa-twitter" href="#?"></a>
+													</div>
+												</div>
+											</div>
+											<div class="description">
+												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+													animi expedita distinctio. Nam libero tempore, cum</p>
+											</div>
+										</div>
+										<div class="item-half d-flex flex-wrap justify-content-end">
+											<div class="img" style="background-image: url(./images/img-classes-13.jpg);"></div>
+											<div class="img -wide" style="background-image: url(./images/img-classes-12.jpg);"></div>
+											<div class="img -wide" style="background-image: url(./images/img-classes-10.jpg);"></div>
+											<div class="img" style="background-image: url(./images/img-classes-08.jpg);"></div>
+										</div>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<div class="item-half">
+											<div class="d-flex">
+												<div class="img-wrap">
+													<img src="images/photo-01.png" alt="">
+												</div>
+												<div class="info">
+													<p class="author">Jane Doe</p>
+													<p class="quote">Five months later, I couldn’t be happier with the results.</p>
+													<div class="social">
+														<a class="fa fa-facebook" href="#?"></a>
+														<a class="fa fa-twitter" href="#?"></a>
+													</div>
+												</div>
+											</div>
+											<div class="description">
+												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
+													animi expedita distinctio. Nam libero tempore, cum</p>
+											</div>
+										</div>
+										<div class="item-half d-flex flex-wrap justify-content-end">
+											<div class="img" style="background-image: url(./images/img-classes-05.jpg);"></div>
+											<div class="img -wide" style="background-image: url(./images/img-classes-07.jpg);"></div>
+											<div class="img -wide" style="background-image: url(./images/img-classes-03.jpg);"></div>
+											<div class="img" style="background-image: url(./images/img-classes-08.jpg);"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section-location -home04" id="to-location">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-heading text-center">
+								<h2 class="lined d-inline-block">our location</h2>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<ul class="list-location">
+								<li>
+									<h5 class="title">Location</h5>
+									<ul class="list-contact">
+										<li>
+											<i class="fa fa-home"></i>
+											<span>At vero acudsmetus, voluptatum</span>
+										</li>
+										<li>
+											<i class="fa fa-phone"></i>
+											<span>tel. (413) 126 789</span>
+										</li>
+										<li>
+											<i class="fa fa-envelope"></i>
+											<span>hello@gym.com</span>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5 class="title">Location</h5>
+									<ul class="list-contact">
+										<li>
+											<i class="fa fa-home"></i>
+											<span>At vero acudsmetus, voluptatum</span>
+										</li>
+										<li>
+											<i class="fa fa-phone"></i>
+											<span>tel. (413) 126 789</span>
+										</li>
+										<li>
+											<i class="fa fa-envelope"></i>
+											<span>hello@gym.com</span>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5 class="title">Location</h5>
+									<ul class="list-contact">
+										<li>
+											<i class="fa fa-home"></i>
+											<span>At vero acudsmetus, voluptatum</span>
+										</li>
+										<li>
+											<i class="fa fa-phone"></i>
+											<span>tel. (413) 126 789</span>
+										</li>
+										<li>
+											<i class="fa fa-envelope"></i>
+											<span>hello@gym.com</span>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="col-md-7">
+							<div class="map-wrapper">
+								<div id="multi_map"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <section class="section-timetable -home04" id="to-schedule">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="offset-lg-1 col-lg-10 col-md-12">
@@ -1489,811 +1855,8 @@
 					</div>
 				</div>
 			</section>
-			<section class="section-gallery -home04" id="to-gallery">
-				<div class="container-fluid">
-					<div class="section-heading text-center">
-						<h2 class="lined -bot d-inline-block">our gallery</h2>
-					</div>
-					<div class="gallery-filter nav-simple">
-						<nav class="nav justify-content-center nav-list" id="gallery-filter">
-							<a class="nav-link active" href="javascript:void(0);" data-group="all">All</a>
-							<a class="nav-link" href="javascript:void(0);" data-group="trainers">Trainers</a>
-							<a class="nav-link" href="javascript:void(0);" data-group="rooms">Rooms</a>
-							<a class="nav-link" href="javascript:void(0);" data-group="classes">Classes</a>
-							<a class="nav-link" href="javascript:void(0);" data-group="events">Events</a>
-							<a class="nav-link" href="javascript:void(0);" data-group="members">Members</a>
-						</nav>
-						<div class="title-link">
-							<a class="link" href="gallery-04.html">
-								<span>View all photos</span>
-								<i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="my-shuffle-container gallery-simple-hover" id="gallery-grid">
-					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-09.jpg" data-groups="[&quot;members&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-						<div class="img-wrap">
-							<img src="./images/img-classes-09.jpg" alt="">
-						</div>
-						<div class="gallery-caption">
-							<span class="naming">Stretching</span>
-							<span class="coach">with Ashley Fletcher</span>
-						</div>
-					</a>
-					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-10.jpg" data-groups="[&quot;rooms&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-						<div class="img-wrap">
-							<img src="./images/img-classes-10.jpg" alt="">
-						</div>
-						<div class="gallery-caption">
-							<span class="naming">Stretching</span>
-							<span class="coach">with Ashley Fletcher</span>
-						</div>
-					</a>
-					<a class="gallery-item -third -lighbox_link" href="./images/img-classes-12.jpg" data-groups="[&quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-						<div class="img-wrap">
-							<img src="./images/img-classes-12.jpg" alt="">
-						</div>
-						<div class="gallery-caption">
-							<span class="naming">Stretching</span>
-							<span class="coach">with Ashley Fletcher</span>
-						</div>
-					</a>
-				</div>
-			</section>
-			<section class="section-price -home04" id="to-price">
-				<div class="container-fluid full-height">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="section-heading">
-								<h2 class="lined -bot">Pricing calculator</h2>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-3 offset-lg-1 step-item">
-							<div class="panel -step">
-								<div class="panel-heading">
-									<h4>
-										<span class="num">1</span>
-										<span class="text">step: choose Trainings</span>
-									</h4>
-								</div>
-								<div class="panel-body">
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_gym">
-											<input type="checkbox" name="check_step_1" id="check_step_1_gym">
-											<span>GYM</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_yoga">
-											<input type="checkbox" name="check_step_1" id="check_step_1_yoga">
-											<span>Yoga</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_fitness">
-											<input type="checkbox" name="check_step_1" id="check_step_1_fitness">
-											<span>Fitness</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_pilates">
-											<input type="checkbox" name="check_step_1" id="check_step_1_pilates">
-											<span>Pilates</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_boxing">
-											<input type="checkbox" name="check_step_1" id="check_step_1_boxing">
-											<span>Boxing</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_stretching">
-											<input type="checkbox" name="check_step_1" id="check_step_1_stretching">
-											<span>Stretching</span>
-										</label>
-									</div>
-									<div class="form-group checkbox-custom">
-										<label for="check_step_1_crossfit">
-											<input type="checkbox" name="check_step_1" id="check_step_1_crossfit">
-											<span>Crossfit</span>
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-5 step-item">
-							<div class="panel -step">
-								<div class="panel-heading">
-									<h4>
-										<span class="num">2</span>
-										<span class="text">step: Choose your Preference</span>
-									</h4>
-								</div>
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-sm-6">
-											<h5>Choose your preferences</h5>
-											<div class="form-group">
-												<label class="h5">Kind of yoga</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="kind_of_yoga">
-														<option value="All">All</option>
-														<option value="First">First</option>
-														<option value="Second">Second</option>
-														<option value="Third">Third</option>
-														<option value="Fourth">Fourth</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="h5">Trainings a week</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="trainings_a_week">
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="h5">Time</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="time">
-														<option value="1">09.00 - 15.00</option>
-														<option value="2">09.00 - 15.00</option>
-														<option value="3">09.00 - 15.00</option>
-														<option value="4">09.00 - 15.00</option>
-														<option value="5">09.00 - 15.00</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="h5">Trainer</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="trainings_a_week">
-														<option value="1">Ashlie Taylor</option>
-														<option value="2">Ashlie Taylor</option>
-														<option value="3">Ashlie Taylor</option>
-														<option value="4">Ashlie Taylor</option>
-														<option value="5">Ashlie Taylor</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<h5>Choose your preferences</h5>
-											<div class="form-group">
-												<label class="h5">Massage</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="massage">
-														<option value="1">1 times</option>
-														<option value="2">2 times</option>
-														<option value="3">3 times</option>
-														<option value="4">4 times</option>
-														<option value="5">5 times</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="h5">Swimming pool</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="massage">
-														<option value="1">1 times</option>
-														<option value="2">2 times</option>
-														<option value="3">3 times</option>
-														<option value="4">4 times</option>
-														<option value="5">5 times</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="h5">Solar</label>
-												<div class="select-wrapper">
-													<select class="form-control" name="massage">
-														<option value="1">1 times</option>
-														<option value="2">2 times</option>
-														<option value="3">3 times</option>
-														<option value="4">4 times</option>
-														<option value="5">5 times</option>
-													</select>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="panel-footer text-center">
-									<a class="link" href="#?">
-										<span>add to price</span>
-										<i class="fa fa-arrow-right"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 step-item">
-							<div class="panel -step">
-								<div class="panel-heading">
-									<h4>
-										<span class="num">3</span>
-										<span class="text">step: ToTAL price</span>
-									</h4>
-								</div>
-								<div class="panel-body">
-									<h5>Your trainings and services:</h5>
-									<ol class="list-default">
-										<li>
-											<span>Yoga ( 2 times/week )</span>
-											<a class="close fa fa-times" href="#?"></a>
-										</li>
-										<li>
-											<span>Massage ( 2 times )</span>
-											<a class="close fa fa-times" href="#?"></a>
-										</li>
-										<li>
-											<span>Swimming Pool ( 2 times )</span>
-											<a class="close fa fa-times" href="#?"></a>
-										</li>
-										<li>
-											<span>Solar ( 6 times )</span>
-											<a class="close fa fa-times" href="#?"></a>
-										</li>
-									</ol>
-									<hr>
-									<div class="total d-flex align-items-center justify-content-between">
-										<span class="text">Total price:</span>
-										<span class="price">
-											<i>$ </i>16.99</span>
-									</div>
-								</div>
-								<div class="panel-footer text-center">
-									<a class="btn btn-primary">
-										<span>Buy now</span>
-										<i class="fa fa-arrow-right"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-testimonials -home04" id="to-testimonials">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="section-heading d-flex justify-content-between align-items-center">
-								<h2 class="lined -bot">Testimonials</h2>
-								<div class="title-link">
-									<a class="link" href="testimonials-02.html">
-										<span>View all Testimonials</span>
-										<i class="fa fa-arrow-right"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="slider-stories slider-stories-home02">
-								<div>
-									<div class="item">
-										<div class="item-aside">
-											<div class="img-wrap">
-												<img src="images/photo-01.png" alt="">
-											</div>
-										</div>
-										<div class="item-content">
-											<h4 class="author">Jane Doe</h4>
-											<div class="social">
-												<a class="fa fa-facebook" href="#?"></a>
-												<a class="fa fa-twitter" href="#?"></a>
-											</div>
-											<div class="description">
-												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-													animi expedita distinctio. Nam libero tempore, cum</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="item">
-										<div class="item-aside">
-											<div class="img-wrap">
-												<img src="images/photo-01.png" alt="">
-											</div>
-										</div>
-										<div class="item-content">
-											<h4 class="author">Jane Doe</h4>
-											<div class="social">
-												<a class="fa fa-facebook" href="#?"></a>
-												<a class="fa fa-twitter" href="#?"></a>
-											</div>
-											<div class="description">
-												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-													animi expedita distinctio. Nam libero tempore, cum</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="item">
-										<div class="item-aside">
-											<div class="img-wrap">
-												<img src="images/photo-01.png" alt="">
-											</div>
-										</div>
-										<div class="item-content">
-											<h4 class="author">Jane Doe</h4>
-											<div class="social">
-												<a class="fa fa-facebook" href="#?"></a>
-												<a class="fa fa-twitter" href="#?"></a>
-											</div>
-											<div class="description">
-												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-													animi expedita distinctio. Nam libero tempore, cum</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-blog -home04" id="to-blog">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12 col-lg-10 offset-lg-1">
-							<div class="section-heading d-flex justify-content-between align-items-center">
-								<h2 class="lined -bot">Our Blog</h2>
-								<div class="nav-simple">
-									<nav class="nav justify-content-center nav-list" id="blog-filter">
-										<a class="nav-link active" href="javascript:void(0);" data-group="all">All</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="trainers">Trainers</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="rooms">Rooms</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="classes">Classes</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="events">Events</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="members">Members</a>
-									</nav>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="my-shuffle-container grid-custom-wrapper" id="blog-grid">
-								<div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-05.jpg" alt="">
-												<h4 class="title">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -third filter-item" data-groups="[&quot;rooms&quot;, &quot;members&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-12.jpg" alt="">
-												<h4 class="title -bottom">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -third filter-item" data-groups="[&quot;trainers&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-12.jpg" alt="">
-												<h4 class="title -bottom">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -third filter-item" data-groups="[&quot;events&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-12.jpg" alt="">
-												<h4 class="title -bottom">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-05.jpg" alt="">
-												<h4 class="title">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -third filter-item" data-groups="[&quot;rooms&quot;, &quot;members&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="blog-item -default -no-shadow">
-										<div class="_header">
-											<a class="img-wrap relative" href="blog_page.html">
-												<img src="images/img-classes-12.jpg" alt="">
-												<h4 class="title -bottom">Enhance Your Workout</h4>
-											</a>
-										</div>
-										<div class="_body">
-											<p class="descr">Many supplement their fitness routine with Pilates training, a workout on its own. Although Pilates focuses on the body’s core, its benefits radiate throughout the body, including the brain for improved mental health.</p>
-										</div>
-										<div class="_footer">
-											<a class="link" href="blog_page.html">
-												<span>Read more</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<a class="btn btn-secondary" href="blog-03.html">
-								<span>More news</span>
-								<i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-stories -home04" id="to-stories">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="section-heading">
-								<h2 class="lined -bot">SUCCESS STORIES</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1">
-							<div class="slider-stories-home04">
-								<div>
-									<div class="item">
-										<div class="item-half">
-											<div class="d-flex">
-												<div class="img-wrap">
-													<img src="images/photo-01.png" alt="">
-												</div>
-												<div class="info">
-													<p class="author">Jane Doe</p>
-													<p class="quote">Five months later, I couldn’t be happier with the results.</p>
-													<div class="social">
-														<a class="fa fa-facebook" href="#?"></a>
-														<a class="fa fa-twitter" href="#?"></a>
-													</div>
-												</div>
-											</div>
-											<div class="description">
-												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-													animi expedita distinctio. Nam libero tempore, cum</p>
-											</div>
-										</div>
-										<div class="item-half d-flex flex-wrap justify-content-end">
-											<div class="img" style="background-image: url(./images/img-classes-13.jpg);"></div>
-											<div class="img -wide" style="background-image: url(./images/img-classes-12.jpg);"></div>
-											<div class="img -wide" style="background-image: url(./images/img-classes-10.jpg);"></div>
-											<div class="img" style="background-image: url(./images/img-classes-08.jpg);"></div>
-										</div>
-									</div>
-								</div>
-								<div>
-									<div class="item">
-										<div class="item-half">
-											<div class="d-flex">
-												<div class="img-wrap">
-													<img src="images/photo-01.png" alt="">
-												</div>
-												<div class="info">
-													<p class="author">Jane Doe</p>
-													<p class="quote">Five months later, I couldn’t be happier with the results.</p>
-													<div class="social">
-														<a class="fa fa-facebook" href="#?"></a>
-														<a class="fa fa-twitter" href="#?"></a>
-													</div>
-												</div>
-											</div>
-											<div class="description">
-												<p>Et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia
-													animi expedita distinctio. Nam libero tempore, cum</p>
-											</div>
-										</div>
-										<div class="item-half d-flex flex-wrap justify-content-end">
-											<div class="img" style="background-image: url(./images/img-classes-05.jpg);"></div>
-											<div class="img -wide" style="background-image: url(./images/img-classes-07.jpg);"></div>
-											<div class="img -wide" style="background-image: url(./images/img-classes-03.jpg);"></div>
-											<div class="img" style="background-image: url(./images/img-classes-08.jpg);"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-shop -home04" id="to-shop">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="section-heading d-flex justify-content-between align-items-center">
-								<h2 class="lined -bot">Our shop</h2>
-								<div class="nav-simple">
-									<nav class="nav nav-list" id="shop-filter">
-										<a class="nav-link active" href="javascript:void(0);" data-group="all">All Coaches</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="weight_loss">Weight Loss</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="aerobics">Aerobics</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="crossfit">Crossfit</a>
-										<a class="nav-link" href="javascript:void(0);" data-group="gym">Gym</a>
-									</nav>
-								</div>
-								<div class="title-link">
-									<a class="link" href="shop-02.html">
-										<span>View all items</span>
-										<i class="fa fa-caret-right"></i>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="my-shuffle-container grid-custom-wrapper" id="shop-grid">
-								<div class="col -full filter-item" data-groups="[&quot;weight_loss&quot;, &quot;crossfit&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="card -fullwidth">
-										<a class="img-wrap" href="product-01.html">
-											<img src="images/shop-img-01.png" alt="">
-										</a>
-										<div class="info">
-											<a class="title" href="product-01.html">0.5 KG DUMBBELL</a>
-											<p class="category">Sports Equipment</p>
-											<fieldset class="rating stars">
-												<input id="star5-1" type="radio" name="stars-home04" value="5">
-												<label class="full" for="star5-1" title="Awesome - 5 stars"></label>
-												<input id="star4half-1" type="radio" name="stars-home04" value="4 and a half">
-												<label class="half" for="star4half-1" title="Pretty good - 4.5 stars"></label>
-												<input id="star4-1" type="radio" name="stars-home04" value="4">
-												<label class="full" for="star4-1" title="Pretty good - 4 stars"></label>
-												<input id="star3half-1" type="radio" name="stars-home04" value="3 and a half">
-												<label class="half" for="star3half-1" title="Meh - 3.5 stars"></label>
-												<input id="star3-1" type="radio" name="stars-home04" value="3">
-												<label class="full" for="star3-1" title="Meh - 3 stars"></label>
-												<input id="star2half-1" type="radio" name="stars-home04" value="2 and a half">
-												<label class="half" for="star2half-1" title="Kinda bad - 2.5 stars"></label>
-												<input id="star2-1" type="radio" name="stars-home04" value="2">
-												<label class="full" for="star2-1" title="Kinda bad - 2 stars"></label>
-												<input id="star1half-1" type="radio" name="stars-home04" value="1 and a half">
-												<label class="half" for="star1half-1" title="Meh - 1.5 stars"></label>
-												<input id="star1-1" type="radio" name="stars-home04" value="1">
-												<label class="full" for="star1-1" title="Sucks big time - 1 star"></label>
-												<input id="starhalf-1" type="radio" name="stars-home04" value="half">
-												<label class="half" for="starhalf-1" title="Sucks big time - 0.5 stars"></label>
-											</fieldset>
-										</div>
-										<div class="color-type">
-											<a class="title text-capitalize" href="product-01.html">color</a>
-											<ul class="list-color">
-												<li>
-													<a class="green" href="#?"></a>
-												</li>
-												<li>
-													<a class="blue" href="#?"></a>
-												</li>
-												<li>
-													<a class="black" href="#?"></a>
-												</li>
-											</ul>
-										</div>
-										<div class="price-wrapper">
-											<span class="price">32.00
-												<i class="small">$</i>
-											</span>
-										</div>
-										<div class="btn-wrapper">
-											<a class="btn btn-primary" href="product-02.html">
-												<span>Buy now</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="col -full filter-item" data-groups="[&quot;aerobics&quot;, &quot;gym&quot;]" data-date-created="2010-09-14" data-title="Yoga">
-									<div class="card -fullwidth">
-										<a class="img-wrap" href="product-01.html">
-											<img src="images/shop-img-03.png" alt="">
-										</a>
-										<div class="info">
-											<a class="title" href="product-01.html">0.5 KG DUMBBELL</a>
-											<p class="category">Sports Equipment</p>
-											<fieldset class="rating stars">
-												<input id="star5-2" type="radio" name="stars-home04" value="5">
-												<label class="full" for="star5-2" title="Awesome - 5 stars"></label>
-												<input id="star4half-2" type="radio" name="stars-home04" value="4 and a half">
-												<label class="half" for="star4half-2" title="Pretty good - 4.5 stars"></label>
-												<input id="star4-2" type="radio" name="stars-home04" value="4">
-												<label class="full" for="star4-2" title="Pretty good - 4 stars"></label>
-												<input id="star3half-2" type="radio" name="stars-home04" value="3 and a half">
-												<label class="half" for="star3half-2" title="Meh - 3.5 stars"></label>
-												<input id="star3-2" type="radio" name="stars-home04" value="3">
-												<label class="full" for="star3-2" title="Meh - 3 stars"></label>
-												<input id="star2half-2" type="radio" name="stars-home04" value="2 and a half">
-												<label class="half" for="star2half-2" title="Kinda bad - 2.5 stars"></label>
-												<input id="star2-2" type="radio" name="stars-home04" value="2">
-												<label class="full" for="star2-2" title="Kinda bad - 2 stars"></label>
-												<input id="star1half-2" type="radio" name="stars-home04" value="1 and a half">
-												<label class="half" for="star1half-2" title="Meh - 1.5 stars"></label>
-												<input id="star1-2" type="radio" name="stars-home04" value="1">
-												<label class="full" for="star1-2" title="Sucks big time - 1 star"></label>
-												<input id="starhalf-2" type="radio" name="stars-home04" value="half">
-												<label class="half" for="starhalf-2" title="Sucks big time - 0.5 stars"></label>
-											</fieldset>
-										</div>
-										<div class="color-type">
-											<a class="title text-capitalize" href="product-01.html">color</a>
-											<ul class="list-color">
-												<li>
-													<a class="green" href="#?"></a>
-												</li>
-												<li>
-													<a class="blue" href="#?"></a>
-												</li>
-												<li>
-													<a class="black" href="#?"></a>
-												</li>
-											</ul>
-										</div>
-										<div class="price-wrapper">
-											<span class="price">32.00
-												<i class="small">$</i>
-											</span>
-										</div>
-										<div class="btn-wrapper">
-											<a class="btn btn-primary" href="product-02.html">
-												<span>Buy now</span>
-												<i class="fa fa-arrow-right"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-location -home04" id="to-location">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="section-heading text-center">
-								<h2 class="lined d-inline-block">our location</h2>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-5">
-							<ul class="list-location">
-								<li>
-									<h5 class="title">Location</h5>
-									<ul class="list-contact">
-										<li>
-											<i class="fa fa-home"></i>
-											<span>At vero acudsmetus, voluptatum</span>
-										</li>
-										<li>
-											<i class="fa fa-phone"></i>
-											<span>tel. (413) 126 789</span>
-										</li>
-										<li>
-											<i class="fa fa-envelope"></i>
-											<span>hello@gym.com</span>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5 class="title">Location</h5>
-									<ul class="list-contact">
-										<li>
-											<i class="fa fa-home"></i>
-											<span>At vero acudsmetus, voluptatum</span>
-										</li>
-										<li>
-											<i class="fa fa-phone"></i>
-											<span>tel. (413) 126 789</span>
-										</li>
-										<li>
-											<i class="fa fa-envelope"></i>
-											<span>hello@gym.com</span>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5 class="title">Location</h5>
-									<ul class="list-contact">
-										<li>
-											<i class="fa fa-home"></i>
-											<span>At vero acudsmetus, voluptatum</span>
-										</li>
-										<li>
-											<i class="fa fa-phone"></i>
-											<span>tel. (413) 126 789</span>
-										</li>
-										<li>
-											<i class="fa fa-envelope"></i>
-											<span>hello@gym.com</span>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-7">
-							<div class="map-wrapper">
-								<div id="multi_map"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-contact -home04" id="to-contact">
+
+            <section class="section-contact -home04" id="to-contact">
 				<div class="halfheight bg-img04 -bordered">
 					<form class="form-contact" action="#?">
 						<div class="section-heading text-center">

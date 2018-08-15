@@ -20,6 +20,10 @@ from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from .blocks import BaseStreamBlock
 
+from blog.models import BlogCategory
+from django.db.models import Count
+
+
 
 class StandardPage(Page):
     """
@@ -207,6 +211,5 @@ class HomePage(Page):
     def get_context(self, request, *args, **kwargs):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(HomePage, self).get_context(request, *args, **kwargs)
-        #context['blog_pages'] = self.blog_pages
-        #context['blog_index_page'] = self
+        context['available_categories'] = BlogCategory.objects.annotate(Count('name'))[:5]
         return context

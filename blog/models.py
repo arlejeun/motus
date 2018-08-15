@@ -68,6 +68,10 @@ class BlogIndexPage(RoutablePageMixin, Page):
     def get_posts(self):
         return BlogPage.objects.descendant_of(self).live().order_by('-date')
 
+    def children(self):
+        return self.get_children().specific().live()
+
+
     @route(r'^(\d{4})/$')
     @route(r'^(\d{4})/(\d{2})/$')
     @route(r'^(\d{4})/(\d{2})/(\d{2})/$')

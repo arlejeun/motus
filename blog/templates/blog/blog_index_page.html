@@ -8,83 +8,73 @@
 
    	<main class="main">
 
-		{% image page.specific.header_image original as my_image %}
-			<section class="section-top-single" style="background-image:url({{ my_image.url }})">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-lg-10 offset-lg-1 col-md-12">
-							<h2 class="lined">OUR blog</h2>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section class="section-blog-single">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="offset-lg-1 col-lg-10">
-							<div class="blog-filter nav-simple">
+        {% image page.specific.header_image original as my_image %}
+            <section class="section-top-single" style="background-image:url({{ my_image.url }})">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1 col-md-12">
+                            <!--<h2 class="lined">OUR blog</h2>-->
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <section class="section-blog-single">
 
+                <div class="container-fluid">
 
-								<nav class="nav nav-list -flex_center" id="blog-filter"  style="margin-bottom: 20px;">
+                    <div class="row">
+                        <div class="offset-lg-1 col-lg-10">
+                            <div class="blog-filter nav-simple">
+                                <nav class="nav nav-list -flex_center" id="blog-filter"  style="margin-bottom: 20px;">
+                                    <a class="nav-link active" href="{% routablepageurl blog_index_page "post_list" %}" data-group="all">All</a>
+                                    {% for category in available_categories.all %}
+                                        <a class="nav-link" href="{% routablepageurl blog_index_page "post_by_category" category.slug %}"" data-group="{{ category.slug }}">{{ category.name }}</a>
+                                    {% endfor %}
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
 
-									<a class="nav-link active" href="{% routablepageurl blog_index_page "post_list" %}" data-group="all">All</a>
+                    <div class="row">
 
-									{% for category in available_categories.all %}
+                        <div class="col-lg-10 offset-lg-1">
 
-										<a class="nav-link" href="{% routablepageurl blog_index_page "post_by_category" category.slug %}"" data-group="{{ category.slug }}">{{ category.name }}</a>
+                            <div class="my-shuffle-container grid-custom-wrapper" id="blog-grid">
 
-									{% endfor %}
+                            {% for post in blog_pages %}
 
-								</nav>
+                            <div class="col -half filter-item" data-groups="{{post.categories}}" data-date-created="{{ post.specific.date |date:'Y-m-d'}}" data-title="{{post.title}}">
+                                <div class="blog-item -wide">
+                                    <a class="img-wrap" href="{% pageurl post %}">
+                                        {% if post.header_image %}
+                                        {% image post.header_image fill-180x180-c100 as header_image %}
+                                            <img src="{{ header_image.url }}" alt="">
+                                        {% endif %}
+                                    </a>
+                                    <div class="blog-item-content" style="margin-left:15px">
+                                        <div class="_body">
+                                            <a class="title" href="{% pageurl post %}">{{ post.title }}</a>
+                                            <p>{{ post.specific.intro }}</p>
+                                        </div>
+                                        <div class="_footer">
+                                            <a class="link" href="{% pageurl post %}">
+                                                <span>Read more</span>
+                                                <i class="fa fa-caret-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
 
+                            {% endfor %}
 
+                            </div>
 
-							</div>
-
-				<div class="my-shuffle-container grid-custom-wrapper" id="blog-grid">
-
-				{% for post in blog_pages %}
-
-					<div class="col -quarter filter-item" data-groups="{{post.categories}}" data-date-created="{{ post.specific.date |date:'Y-m-d'}}" data-title="Ninja">
-
-						<!--{% if forloop.counter|divisibleby:4 %}
-							<div class="blog-item -inverse">
-					    {% else %}
-							<div class="blog-item">
-						{% endif %}-->
-							<div class="_header">
-								<a class="img-wrap" href="{% pageurl post %}">
-
-									{% if post.header_image %}
-										{% image post.header_image max-500x200 as header_image %}
-											<img src="{{ header_image.url }}" alt="">
-									{% endif %}
-
-								</a>
-								<span class="date">{{post.specific.date|date:'d.m.Y'}}</span>
-
-							</div>
-							<div class="_body">
-								<a class="title" href="{% pageurl post %}">{{ post.title }}</a>
-								<p>{{ post.specific.intro }}</p>
-							</div>
-							<div class="_footer">
-								<a class="link" href="{% pageurl post %}">
-									<span>Read more</span>
-									<i class="fa fa-caret-right"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-
-				{% endfor %}
-
-				</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</main>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </main>
 
 {% endblock %}
