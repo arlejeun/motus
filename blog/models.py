@@ -40,8 +40,8 @@ class BlogCategory(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
+        verbose_name = "Blog Category"
+        verbose_name_plural = "Blog Categories"
 
 
 class BlogIndexPage(RoutablePageMixin, Page):

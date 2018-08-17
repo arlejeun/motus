@@ -25,6 +25,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
 
@@ -53,10 +54,7 @@
 							<a class="nav-link" href="/#to-classes">Classes</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-advantage">Advantages</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/#to-coaches">Coaches</a>
+							<a class="nav-link" href="/#to-advantage">Administration</a>
 						</li>
 
 						<li class="nav-item">
@@ -64,8 +62,9 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-testimonials">Testimonials</a>
+							<a class="nav-link" href="/#to-coaches">Team</a>
 						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" href="/#to-blog">Blog</a>
 						</li>
@@ -87,7 +86,6 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/motus.js' %}"></script>
-
         <script type="text/javascript" src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/tether/tether.min.js' %}"></script>
@@ -98,6 +96,27 @@
 		<script type="text/javascript" src="{% static 'js/bootstrap_select/bootstrap-select.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/slick-lightbox/slick-lightbox.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/instafeed/instafeed.min.js' %}"></script>
+
+		<script type="text/javascript">
+			var feed = new Instafeed({
+				get: 'tagged',
+				tagName: 'motusfit',
+				accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69'
+			});
+			feed.run();
+		</script>
+
+		<!--<script type="text/javascript">
+			var feed = new Instafeed({
+				get: 'user',
+				userId: '287904803',
+				accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69',
+				limit:'10'
+			});
+			feed.run();
+		</script>-->
+
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

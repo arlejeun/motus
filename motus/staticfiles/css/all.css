@@ -7254,7 +7254,6 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 
 .slick-slide {
   float: left;
-  height: 100%;
   min-height: 1px;
   display: none;
 }
@@ -14892,11 +14891,11 @@ ul, ol {
 }
 
 .list-chip li {
-  -webkit-flex-basis: 25%;
-  -ms-flex-preferred-size: 25%;
-  flex-basis: 25%;
-  max-width: 25%;
-  height: 275px;
+  -webkit-flex-basis: 50%;
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  max-width: 50%;
+  height: 150px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14917,6 +14916,7 @@ ul, ol {
   text-align: center;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .list-chip li:nth-child(4n) {
@@ -15316,10 +15316,14 @@ ol.list-default li:before {
 }
 
 .slider-coaches .h2 {
-  color: #f1f1f1;
+  color: #000;
   margin: 0;
   display: block;
   text-transform: uppercase;
+}
+
+.slider-coaches .position {
+  color: #2ce41f;
 }
 
 .slider-coaches .list-social {

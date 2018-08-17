@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'blog',
     'classes',
     'base',
+    'coach',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',

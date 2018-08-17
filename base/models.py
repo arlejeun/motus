@@ -1,9 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
-from modelcluster.fields import ParentalKey
-from modelcluster.models import ClusterableModel
+from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 
 from wagtail.admin.edit_handlers import (
     FieldPanel,
@@ -16,13 +14,10 @@ from wagtail.admin.edit_handlers import (
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Collection, Page
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
-from wagtail.snippets.models import register_snippet
+from modelcluster.fields import ParentalKey
 from .blocks import BaseStreamBlock
-
 from blog.models import BlogCategory
 from django.db.models import Count
-
 
 
 class StandardPage(Page):
@@ -213,3 +208,25 @@ class HomePage(Page):
         context = super(HomePage, self).get_context(request, *args, **kwargs)
         context['available_categories'] = BlogCategory.objects.annotate(Count('name'))[:5]
         return context
+
+
+class FormField(AbstractFormField):
+    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
+
+
+class FormPage(AbstractEmailForm):
+    intro = RichTextField(blank=True)
+    thank_you_text = RichTextField(blank=True)
+
+    content_panels = AbstractEmailForm.content_panels + [
+        FieldPanel('intro', classname="full"),
+        InlinePanel('form_fields', label="Form fields"),
+        FieldPanel('thank_you_text', classname="full"),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('from_address', classname="col6"),
+                FieldPanel('to_address', classname="col6"),
+            ]),
+            FieldPanel('subject'),
+        ], "Email"),
+    ]

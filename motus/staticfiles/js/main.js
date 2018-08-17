@@ -26,7 +26,7 @@
 		nouisliderInit();
 		selectInit();
 		drawerInit();
-		initMap();
+		//initMap();
 
 		$('body').scrollspy({
 			target: '#navbar-scrollspy',
