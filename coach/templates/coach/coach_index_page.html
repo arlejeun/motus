@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailroutablepage_tags wagtailimages_tags %}
+
+{% block body_class %}template-coachindexpage{% endblock %}
+
+{% block content %}
+
+
+    <main class="theme04 main -inner -pt_toplg">
+
+		<section class="section-coaches-single">
+
+			<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1 col-md-12">
+
+							<div class="nav-simple">
+
+								 <nav class="nav nav-list -flex_center" id="blog-filter"  style="margin-bottom: 20px;">
+                                    <a class="nav-link active" href="{% routablepageurl coach_index_page.specific "trainer_list" %}" data-group="all">All Trainers</a>
+                                    {% for category in available_categories.all %}
+                                        <a class="nav-link" href="{% routablepageurl coach_index_page.specific "trainer_by_category" category.slug %}"" data-group="{{ category.slug }}">{{ category.name }}</a>
+                                    {% endfor %}
+                                </nav>
+
+							</div>
+
+
+							<div class="my-shuffle-container grid-custom-wrapper slider-coaches shuffle" id="blog-grid" style="position: relative; overflow: hidden; transition: height 400ms ease 0s;">
+
+								{% for coach in trainer_pages %}
+
+								<div class="item -half d-flex align-items-center filter-item shuffle-item shuffle-item--visible" data-groups="{{coach.categories}}" style="position: absolute; visibility: visible; will-change: transform; opacity: 1; transition-duration: 400ms, 400ms; transition-timing-function: ease, ease; transition-property: transform, opacity; margin:20px 0;">
+									<a class="img-wrap" href="{% pageurl coach %}">
+										{% if coach.header_image %}
+                                        {% image coach.header_image fill-300x300-c100 as header_image %}
+                                            <img src="{{ header_image.url }}" alt="">
+                                        {% endif %}
+									</a>
+									<div class="slider-item-content">
+										<div class="_header">
+                                            <div class="h2">{{ coach.title }}</div>
+											<!--<a class="h2" href="{% pageurl coach %}">{{ coach.title }}</a>-->
+											<span class="position">{{ coach.role }}</span>
+										</div>
+										<div class="_body">
+											<p class="descr">{{ coach.desc }}</p>
+                                        </div>
+									</div>
+								</div>
+
+								{% endfor %}
+
+
+								<!-- <div class="item -half d-flex align-items-center filter-item shuffle-item shuffle-item--visible" data-groups="[&quot;fitness&quot;]" style="position: absolute; top: 0px; left: 0px; visibility: visible; will-change: transform; opacity: 1; transform: translate(757px, 415px) scale(1); transition-duration: 400ms, 400ms; transition-timing-function: ease, ease; transition-property: transform, opacity;">
+									<a class="img-wrap" href="/personal-page-coach.html">
+										<img src="{% static 'images/coach-img-01.png' %}" alt="">
+									</a>
+									<div class="slider-item-content">
+										<div class="_header">
+											<a class="h2" href="/personal-page-coach.html">Ashley Fletcher</a>
+											<span class="position">fitness intructor</span>
+										</div>
+										<div class="_body">
+											<p class="descr">Commonly called Power yoga, Ashtanga is definitely physically demanding. It’s probably best suited for an ex-athlete or someone looking to really push their body.</p>
+										</div>
+										<div class="_footer d-flex align-items-center">
+											<a class="btn btn-beige" href="/personal-page-coach.html">View details</a>
+											<ul class="list-social nav">
+												<li>
+													<a class="fa fa-facebook" href="#?"></a>
+												</li>
+												<li>
+													<a class="fa fa-twitter" href="#?"></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div> -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+	</main>
+
+
+
+
+{% endblock %}
