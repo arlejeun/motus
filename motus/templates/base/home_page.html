@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags %}
+{% load static wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags %}
 
 {% block content %}
 
@@ -1627,10 +1627,30 @@
 			</section>
 		</main>
 
+        {% endblock content %}
+
 
 	    {% block extra_js %}
             {# Override this in templates to add extra javascript #}
+            <script type="text/javascript" src="{% static 'js/instafeed/instafeed.min.js' %}"></script>
+
+            <!--<script type="text/javascript">
+                var feed = new Instafeed({
+                    get: 'tagged',
+                    tagName: 'motusfit',
+                    accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69'
+                });
+                feed.run();
+            </script>-->
+
+            <script type="text/javascript">
+                var feed = new Instafeed({
+                    get: 'user',
+                    userId: '287904803',
+                    accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69',
+                    limit:'10'
+                });
+                feed.run();
+            </script>
 
         {% endblock %}
-
-{% endblock content %}
