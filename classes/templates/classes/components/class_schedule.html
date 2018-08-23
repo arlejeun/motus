@@ -1,0 +1,44 @@
+{% load class_schedule_tags%}
+
+<section class="section-timetable">
+				<div class="container-fluid">
+
+
+                   <div class="offset-lg-1 col-lg-10 col-md-12">
+							<div class="timetable-wrap -default -inner">
+
+                                {% for weekday in weekdays_schedule %}
+
+                                <div class="timetable-col">
+
+                                    {% for mykey,items in weekday.items %}
+
+                                    <div class="timetable-title">
+										<h5>{{mykey}}</h5>
+									</div>
+
+                                        {% for item in items %}
+
+                                            <div class="timetable-cell">
+
+                                                <div class="timetable-item f-beginners">
+                                                    <div class="item-body">
+                                                        <span class="time">{{item.time}}</span>
+                                                        <span class="naming">{{item.category}}</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+
+                                     </div>
+
+                                {% endfor %}
+
+
+
+						</div>
+					</div>
+				</div>
+			</section>

@@ -1,0 +1,1648 @@
+{% extends "base.html" %}
+
+{% load static wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags %}
+
+{% block content %}
+
+
+		<main class=" theme04 main -pd_top0">
+			<section class="section-top -home04" id="to-top">
+				<div class="container-fluid _content">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-xl-6 col-sm-12">
+							<div class="img-wrap">
+                                {% if page.image %}
+                                    {% image page.image original as main_image %}
+                                    <img src="{{ main_image.url }}" alt="">
+                                {% endif %}
+							</div>
+						</div>
+						<div class="col-xl-6 col-sm-12">
+							<div class="heading-wrapper">
+								<h1>Hard work, huge results</h1>
+								<p class="subheading">Stop dreaming, get start now </p>
+								<a class="btn btn-secondary" href="#to-price">
+									<span>Start now</span>
+									<i class="fa fa-arrow-right"></i>
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+            {% if page.featured_section_1 %}
+
+                    <section class="section-classes -home-04" id="to-classes">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="offset-lg-1 col-lg-10 col-md-12">
+                                    <div class="section-heading d-flex justify-content-between align-items-center">
+                                        <h2 class="lined -bot">{{ page.featured_section_1_title }}</h2>
+                                        <div class="title-link">
+                                            <a class="link -black" href="{% pageurl page.featured_section_1 %}">
+                                                <span>View all classes</span>
+                                                <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-12">
+
+                                    <div class="slider-classes-home03 slider-classes-home03_js">
+
+                                        {% for post in page.featured_section_1.specific.children|slice:"10" %}
+                                            {% image post.specific.header_image max-1000x500 as my_image %}
+
+                                        <div class="item" style="height:auto;">
+                                            <a class="img-wrap" href="{% pageurl post %}" style="background-image:url({{ my_image.url }})"></a>
+                                            <div class="slider-content">
+                                                <div class="_header">
+                                                    <a href="{% pageurl post %}">{{ post.title }}</a>
+											        <span class="subtitle">{{ post.specific.sub_title | default_if_none:""  }}</span>
+                                                </div>
+                                                <div class="_body">
+                                                    <p>{{ post.specific.intro }}</p>
+                                                </div>
+                                                <div class="_footer text-right">
+                                                    <a class="btn btn-primary" href="{% pageurl post %}">
+                                                        <span>View details</span>
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+            {% endif %}
+
+
+			<div class="section-wrapper">
+
+				<section class="section-advantage -home04" id="to-advantage">
+
+					<div class="container-fluid">
+
+						<div class="row">
+
+							<div class="col-md-4 col-lg-4" >
+
+								<div class="section-heading text-center">
+										<h2 class="lined -bot d-inline-block">Administration</h2>
+								</div>
+
+								<div style="padding:0 40px;margin-bottom:30px">
+									<ul class="list-chip">
+										<li>
+											<div class="icon-wrap">
+												<a href="https://awaiver.com/Sign/1154" target="_blank" style="color:#fff;">
+													<i class="fas fa-tasks"></i>
+													<span class="title" style="padding-top:10px">Adult Waiver</span>
+												</a>
+											</div>
+										</li>
+										<li>
+											<div class="icon-wrap">
+												<a href="https://app.iclasspro.com/parentportal/motus/classes" target="_blank" style="color:#fff;">
+													<i class="far fa-calendar-alt"></i>
+													<span class="title" style="padding-top:10px">Schedule</span>
+												</a>
+											</div>
+										</li>
+										<li>
+											<div class="icon-wrap">
+												<a href="https://awaiver.com/Sign/1153" target="_blank" style="color:#fff;">
+													<i class="fas fa-tasks"></i>
+													<span class="title" style="padding-top:10px">Kid Waiver</span>
+												</a>
+											</div>
+										</li>
+										<li>
+											<div class="icon-wrap">
+												<a href="https://app.iclasspro.com/parentportal/motus" target="_blank" style="color:#fff;">
+													<i class="fas fa-sign-in-alt"></i>
+													<span class="title" style="padding-top:10px">Enroll</span>
+												</a>
+											</div>
+										</li>
+									 </ul>
+								</div>
+
+								<div class="section-heading text-center">
+									<h2 class="lined -bot d-inline-block">Social Activity</h2>
+								</div>
+
+								<div id="fb-root">
+									<div class="fb-page" data-href="https://www.facebook.com/motusfitls" data-tabs="timeline" data-width="320" data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/motusfitls" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/motusfitls">Motus Fit</a></blockquote></div>
+								</div>
+
+
+							</div>
+
+							<div class="col-md-6 col-lg-8" >
+
+								<div class="section-heading text-center">
+										<h2 class="lined -bot d-inline-block">Location</h2>
+								</div>
+
+								<ul class="list-location">
+									<li>
+										<ul class="list-contact">
+											<li>
+												<i class="fa fa-map-marker"></i><span style="font-weight: bold;">725 NW Commerce Dr, Lee's Summit, MO 64086</span>
+											</li>
+											<!--<li>
+												<i class="fa fa-phone"></i><a href="tel:1-816-347-8008"><span style="color:#fff">1-816-347-8008</span></a>
+											</li>-->
+
+										</ul>
+									</li>
+								</ul>
+
+								<div class="map-wrapper" style="margin-top:15px">
+									<div id="multi_map"><iframe width="100%" height="400px" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=725%20NW%20Commerce%20Dr%20Lee%E2%80%99s%20Summit%2C%20MO%2064086&amp;key=AIzaSyDC9ED5SQ6GwO97o3_CW2OZDUcuyQAJs5s" allowfullscreen=""></iframe></div>
+								</div>
+
+								<div class="section-heading text-center" style="margin-top:25px;">
+									<h2 class="lined -bot d-inline-block">Gallery</h2>
+								</div>
+								<!-- The container for the list of example images -->
+								<div id="instafeed"></div>
+
+							</div>
+						</div>
+
+					</div>
+
+				</section>
+
+			</div>
+
+				{% if page.featured_section_3 %}
+					<section class="section-coaches -home04" id="to-coaches">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="offset-lg-1 col-lg-10 col-md-12">
+                                    <div class="section-heading d-flex justify-content-between align-items-center">
+                                        <h2 class="lined -bot">{{ page.featured_section_3_title }}</h2>
+                                        <div class="title-link">
+                                            <a class="link" href="{% pageurl page.featured_section_3 %}">
+                                                <span>View all trainers</span>
+                                                <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="slider-stories slider-stories-home02">
+
+                                    {% for coach in page.featured_section_3.specific.children|slice:"10"%}
+
+                                    <div>
+                                        <div class="item">
+                                            <div class="item-aside">
+                                                <div class="img-wrap">
+                                                    {% if coach.header_image %}
+                                                    {% image coach.header_image fill-300x300-c100 as header_image %}
+                                                    <img src="{{ header_image.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="item-content">
+                                                <h4 class="author" style="color:#020202">{{coach.title}}</h4>
+                                                <div class="description">
+                                                    <p>{{coach.intro}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {%endfor%}
+
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+    				</section>
+				{% endif %}
+
+
+
+
+            {% if page.featured_section_2 %}
+            <section class="section-blog -home04" id="to-blog">
+
+                <div class="container-fluid">
+
+                    <div class="row">
+
+						<div class="col-md-12 col-lg-10 offset-lg-1">
+
+                            <div class="section-heading d-flex justify-content-between align-items-center">
+                                <h2 class="lined -bot">{{ page.featured_section_2_title }}</h2>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-lg-10 offset-lg-1">
+
+                            <div class="my-shuffle-container grid-custom-wrapper" id="blog-grid">
+
+                                {% for post in page.featured_section_2.specific.children|slice:"3" %}
+
+                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+                                    <div class="blog-item -default -no-shadow">
+                                        <div class="_header">
+                                            <a class="img-wrap relative" href="{% pageurl post %}">
+                                                {% if post.specific.header_image %}
+                                                            {% image post.header_image max-500x200 as header_image %}
+                                                                <img src="{{ header_image.url }}" alt="">
+                                                {% endif %}
+                                                <h4 class="title -bottom">{{ post.title }}</h4>
+                                            </a>
+                                        </div>
+                                        <div class="_body">
+                                            <p class="descr">{{ post.specific.intro }}</p>
+                                        </div>
+                                        <div class="_footer">
+                                            <a class="link" href="{% pageurl post %}">
+                                                <span>Read more</span>
+                                                <i class="fa fa-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+
+
+						</div>
+
+
+					</div>
+                    </div>
+
+					<div class="row">
+						<div class="col-md-12 text-center" style="margin-top:25px">
+							<a class="btn btn-secondary" href="{% pageurl page.featured_section_2 %}">
+								<span>More stories</span>
+								<i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+
+                </div>
+			</section>
+            {% endif %}
+
+            <section class="section-timetable -home04" id="to-schedule">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="offset-lg-1 col-lg-10 col-md-12">
+							<div class="section-heading d-flex justify-content-between align-items-center -inner_nav">
+								<h2 class="lined">Classes Timetable</h2>
+								<nav class="nav" id="timetable-filter">
+									<a class="nav-link active" href="#f-clear">All</a>
+									<a class="nav-link" href="#f-weight_loss">Weight Loss</a>
+									<a class="nav-link" href="#f-aerobics">Aerobics</a>
+									<a class="nav-link" href="#f-crossfit">Crossfit</a>
+									<a class="nav-link" href="#f-gym">Gym</a>
+									<a class="nav-link" href="#f-fitness">Fitness</a>
+									<a class="nav-link" href="#f-cycling">Cycling</a>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="offset-lg-1 col-lg-10 col-md-12">
+							<ul class="nav tabs-default">
+								<li class="nav-item">
+									<a class="nav-link active" data-toggle="tab" href="#class1">Class</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#class2">Class</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#class3">Class</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" data-toggle="tab" href="#class4">Class</a>
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane fade show active" id="class1">
+									<div class="timetable-wrap -simple">
+										<div class="timetable-col -add">
+											<div class="timetable-cell">
+												<span class="time">8.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">10.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">11.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">16.00</span>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Monday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">TRX</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Pilates</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Tuesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Wednesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Thursday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Friday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Saturday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-Aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Sunday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="class2">
+									<div class="timetable-wrap -simple">
+										<div class="timetable-col -add">
+											<div class="timetable-cell">
+												<span class="time">8.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">10.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">11.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">16.00</span>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Monday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">TRX</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Pilates</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Tuesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Wednesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Thursday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Friday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Saturday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-Aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Sunday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="class3">
+									<div class="timetable-wrap -simple">
+										<div class="timetable-col -add">
+											<div class="timetable-cell">
+												<span class="time">8.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">10.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">11.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">16.00</span>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Monday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">TRX</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Pilates</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Tuesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Wednesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Thursday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Friday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Saturday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-Aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Sunday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="class4">
+									<div class="timetable-wrap -simple">
+										<div class="timetable-col -add">
+											<div class="timetable-cell">
+												<span class="time">8.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">10.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">11.00</span>
+											</div>
+											<div class="timetable-cell">
+												<span class="time">16.00</span>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Monday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">TRX</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Pilates</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Tuesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Wednesday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Thursday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-fitness">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Friday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Stretching</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Crossfit</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Cycling</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-pilates">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Aerobics</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Saturday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-stretching">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-Aerobics">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Weight Loss</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-weight_loss">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="timetable-col -with-add">
+											<div class="timetable-title">
+												<h5>Sunday</h5>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-aerobics">
+													<span class="timetable-time_mob">8.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-cycling">
+													<span class="timetable-time_mob">10.00</span>
+													<div class="item-body">
+														<span class="naming">Dancing</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-gym">
+													<span class="timetable-time_mob">11.00</span>
+													<div class="item-body">
+														<span class="naming">Yoga</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+											<div class="timetable-cell">
+												<div class="timetable-item f-crossfit">
+													<span class="timetable-time_mob">16.00</span>
+													<div class="item-body">
+														<span class="naming">Zumba</span>
+														<span class="coach">Ashley Fletcher</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <section class="section-contact -home04" id="to-contact">
+				<div class="halfheight bg-img04 -bordered">
+					<form class="form-contact" action="#?">
+						<div class="section-heading text-center">
+							<h2 class="lined -bot d-inline-block">Contact us</h2>
+							<p class="subheading">Are you ready to unleash your inner ninja? Not sure what the next steps are... <br>Get in touch with us!</p>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="email" placeholder="E-mail">
+						</div>
+						<div class="form-group">
+							<textarea class="form-control" placeholder="Write a message.."></textarea>
+						</div>
+						<div class="text-right">
+							<button class="btn btn-primary" type="submit">Send</button>
+						</div>
+					</form>
+				</div>
+				<div class="container-fluid halfheight">
+					<div class="row justify-content-between">
+						<div class="col-md-3 col-sm-6 d-flex justify-content-center">
+							<div class="item-contact">
+								<h4 class="title">Working hours</h4>
+								<p>Mon - Sat: 10:00 - 18:00</p>
+                            </div>
+						</div>
+						<div class="col-md-3 col-sm-6 d-flex justify-content-center">
+							<div class="item-contact">
+								<h4 class="title">Social links</h4>
+								<div class="social">
+									<a class="fa fa-facebook" href="https://www.facebook.com/motusfitls/" target="_blank"></a>
+									<a class="fa fa-instagram" href="https://www.instagram.com/motusfit/" target="_blank"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+        </main>
+
+        {% endblock content %}
+
+
+	    {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+            <script type="text/javascript" src="{% static 'js/instafeed/instafeed.min.js' %}"></script>
+            <script type="text/javascript">
+                var feed = new Instafeed({
+                    get: 'user',
+                    userId: '287904803',
+                    accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69',
+                    limit:'14'
+                });
+                feed.run();
+            </script>
+
+
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+        {% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+
+<section class="section-404" style="background-image: linear-gradient(to top , rgba(0,0,0, 0.5) 0%, rgba(0,0,0,0.5) 100%) , url(../images/img-barbell_lg.jpg);">
+    <div class="page_404-block">
+        <div class="page_404-title">Thank You</div>
+        <p class="page_404-descr">{{ page.thank_you_text|richtext }}</p>
+    </div>
+</section>
+
+
+
+{% endblock content %}

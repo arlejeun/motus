@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
 
+
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     FieldRowPanel,
@@ -10,6 +11,7 @@ from wagtail.admin.edit_handlers import (
     MultiFieldPanel,
     PageChooserPanel,
     StreamFieldPanel,
+    RichTextFieldPanel
 )
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Collection, Page
@@ -56,7 +58,7 @@ class HomePage(Page):
     - Hero area
     - Body area
     - A promotional area
-    - Moveable featured site sections
+    - Featured site sections
     """
 
     # Hero section of HomePage
@@ -69,9 +71,15 @@ class HomePage(Page):
         help_text='Homepage image'
     )
     hero_text = models.CharField(
-        max_length=255,
-        help_text='Write an introduction for the bakery'
+        max_length=128,
+        help_text='Write a catchy intro'
         )
+    hero_sub_text = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text='Write an introduction for the website'
+    )
     hero_cta = models.CharField(
         verbose_name='Hero CTA',
         max_length=255,
@@ -88,8 +96,10 @@ class HomePage(Page):
     )
 
     # Body section of the HomePage
-    body = StreamField(
-        BaseStreamBlock(), verbose_name="Home content block", blank=True
+    body = RichTextField(
+        null=True,
+        blank=True,
+        help_text='Introduction Main Page'
     )
 
     # Promo section of the HomePage
@@ -105,12 +115,12 @@ class HomePage(Page):
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text='Title to display above the promo'
     )
     promo_text = RichTextField(
         null=True,
         blank=True,
-        help_text='Write some promotional copy'
+        help_text='Write some promotional'
     )
 
     # Featured sections on the HomePage
@@ -122,7 +132,8 @@ class HomePage(Page):
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text='Title to display above the promo copy',
+        verbose_name='Featured Trainings Title'
     )
     featured_section_1 = models.ForeignKey(
         'wagtailcore.Page',
@@ -130,16 +141,16 @@ class HomePage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='First featured section for the homepage. Will display up to '
-        'three child items.',
-        verbose_name='Featured section 1'
+        help_text='First featured section for the homepage.',
+        verbose_name='Featured Trainings'
     )
 
     featured_section_2_title = models.CharField(
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text='Title to display above the promo',
+        verbose_name='Featured Stories Title'
     )
     featured_section_2 = models.ForeignKey(
         'wagtailcore.Page',
@@ -147,32 +158,44 @@ class HomePage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Second featured section for the homepage. Will display up to '
-        'three child items.',
-        verbose_name='Featured section 2'
+        help_text='Second featured section for the homepage.',
+        verbose_name='Featured stories'
     )
 
     featured_section_3_title = models.CharField(
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text='Title to display above the promo copy',
+        verbose_name='Featured Trainers Title'
     )
+
     featured_section_3 = models.ForeignKey(
         'wagtailcore.Page',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Third featured section for the homepage. Will display up to '
-        'six child items.',
-        verbose_name='Featured section 3'
+        help_text='Third featured section for the homepage.',
+        verbose_name='Featured trainers'
+    )
+
+    contact_us_page = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='The featured section for the contact us page',
+        verbose_name='Contact Us Page'
+
     )
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             ImageChooserPanel('image'),
             FieldPanel('hero_text', classname="full"),
+            FieldPanel('hero_sub_text', classname="full"),
             MultiFieldPanel([
                 FieldPanel('hero_cta'),
                 PageChooserPanel('hero_cta_link'),
@@ -183,21 +206,22 @@ class HomePage(Page):
             FieldPanel('promo_title'),
             FieldPanel('promo_text'),
         ], heading="Promo section"),
-        StreamFieldPanel('body'),
+        RichTextFieldPanel('body'),
         MultiFieldPanel([
             MultiFieldPanel([
                 FieldPanel('featured_section_1_title'),
-                PageChooserPanel('featured_section_1'),
+                PageChooserPanel('featured_section_1', ['classes.ClassIndexPage']),
                 ]),
             MultiFieldPanel([
                 FieldPanel('featured_section_2_title'),
-                PageChooserPanel('featured_section_2'),
+                PageChooserPanel('featured_section_2', ['blog.BlogIndexPage']),
                 ]),
             MultiFieldPanel([
                 FieldPanel('featured_section_3_title'),
-                PageChooserPanel('featured_section_3'),
+                PageChooserPanel('featured_section_3', ['coach.CoachIndexPage']),
                 ])
-        ], heading="Featured homepage sections", classname="collapsible")
+        ], heading="Featured Homepage Sections", classname="collapsible"),
+        PageChooserPanel('contact_us_page')
     ]
 
     def __str__(self):
@@ -207,6 +231,11 @@ class HomePage(Page):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(HomePage, self).get_context(request, *args, **kwargs)
         context['available_categories'] = BlogCategory.objects.annotate(Count('name'))[:5]
+        if self.contact_us_page:
+            form_page = self.contact_us_page.specific  # must get the specific page
+            # form will be a renderable form as per the dedicated form pages
+            form = form_page.get_form(page=form_page, user=request.user)
+            context['form'] = form
         return context
 
 
@@ -215,13 +244,13 @@ class FormField(AbstractFormField):
 
 
 class FormPage(AbstractEmailForm):
-    intro = RichTextField(blank=True)
-    thank_you_text = RichTextField(blank=True)
+    intro = RichTextField()
+    thank_you_text = RichTextField()
 
     content_panels = AbstractEmailForm.content_panels + [
         FieldPanel('intro', classname="full"),
         InlinePanel('form_fields', label="Form fields"),
-        FieldPanel('thank_you_text', classname="full"),
+        FieldPanel('thank_you_text'),
         MultiFieldPanel([
             FieldRowPanel([
                 FieldPanel('from_address', classname="col6"),
@@ -230,3 +259,17 @@ class FormPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+    def get_form(self, *args, **kwargs):
+        form = super().get_form(*args, **kwargs)
+        # form = super(AbstractEmailForm, self).get_form(*args, **kwargs)  # use this syntax for Python 2.x
+        # iterate through the fields in the generated form
+        for name, field in form.fields.items():
+            # here we want to adjust the widgets on each field
+            # for all fields, get any existing CSS classes and add 'form-control'
+            # ensure the 'class' attribute is a string of classes with spaces
+            css_classes = field.widget.attrs.get('class', '').split()
+            css_classes.append('form-control')
+            field.widget.attrs.update({'class': ' '.join(css_classes)})
+        return form
+
