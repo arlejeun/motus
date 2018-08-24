@@ -13,7 +13,7 @@ def time_sorter(dic):
     hour_str = dic['time']
     hour = hour_str[:-2].replace(':', '0')
     am_pm = hour_str[-2:]
-    return (am_pm, int(hour))
+    return am_pm, int(hour)
 
 
 def is_monday(session):
@@ -77,9 +77,10 @@ def render_schedule(context, schedule):
             'weekdays_schedule': weekdays_schedule}
 
 
-@register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
+'''@register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
 def class_schedule(context):
     return {'request': context['request']}
+'''
 
 
 @register.filter(name='split')

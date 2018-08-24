@@ -28,23 +28,27 @@ class ClassIndexPage(RoutablePageMixin, Page):
     # Allows child objects (e.g. BreadPage objects) to be accessible via the
     # template. We use this on the HomePage to display child items of featured
     # content
+
     def get_trainings(self):
         return TrainingPage.objects.descendant_of(self).live()
 
     def children(self):
         return self.get_children().specific().live()
 
+
     def get_context(self, request, *args, **kwargs):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(ClassIndexPage, self).get_context(request, *args, **kwargs)
         context['class_index_page'] = self
         context['training_pages'] = self.training_pages
+        context['schedules'] = self.get_schedules()
+
         return context
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def training_by_category(self, request, category, *args, **kwargs):
-        self.search_type = 'category'
-        self.search_term = category
+        # self.search_type = 'category'
+        # self.search_term = category
         self.training_pages = self.get_trainings().filter(categories__slug=category)
         return Page.serve(self, request, *args, **kwargs)
 
@@ -76,7 +80,7 @@ class ScheduleBlock(StructBlock):
 
     class Meta:
         icon = 'fa-calendar'
-        label = 'ScheduleStructBlock'
+        label = 'Schedule'
         value_class = ScheduleStructValue
 
 
@@ -104,11 +108,12 @@ class TrainingPage(Page):
     def get_schedule(self):
         return self.schedule
 
-    def get_schedule_1(self):
+    '''def get_schedule_1(self):
         result = {}
         for day in {'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'}:
             result[day] = self.get_schedule_per_day(day)
         return result
+    '''
 
     def get_schedule_per_day(self, day):
         day_schedule = defaultdict(list)
