@@ -41,7 +41,6 @@ class ClassIndexPage(RoutablePageMixin, Page):
         context = super(ClassIndexPage, self).get_context(request, *args, **kwargs)
         context['class_index_page'] = self
         context['training_pages'] = self.training_pages
-        context['schedules'] = self.get_schedules()
 
         return context
 
