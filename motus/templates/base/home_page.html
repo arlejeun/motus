@@ -7,7 +7,7 @@
 
 		<main class=" theme04 main -pd_top0">
 			<section class="section-top -home04" id="to-top">
-				<div class="container-fluid _content">
+				<div class="container-fluid _content" style="background-color:#202020">
 					<div class="row justify-content-center align-items-center">
 						<div class="col-xl-7 col-sm-12">
 							<div class="img-wrap">
@@ -18,16 +18,16 @@
 							</div>
 						</div>
 						<div class="col-xl-5 col-sm-12" style="padding-left: 10px;">
-                            <div class="row" style="margin-bottom:100px"></div>
+                            <div class="row mobile-hide" style="margin-bottom:100px"></div>
 							<div class="heading-wrapper">
-								<h1>{{ page.hero_text }}</h1>
-								<p class="subheading">{{ page.hero_sub_text }} </p>
+								<h1 style="color:#ffffff">{{ page.hero_text }}</h1>
+								<p class="subheading" style="color:#ffffff">{{ page.hero_sub_text }} </p>
 								<a class="btn btn-secondary" href="{% pageurl page.hero_cta_link %}">
 									<span>{{ page.hero_cta }}</span>
 									<i class="fa fa-arrow-right"></i>
 								</a>
 
-                                <div class="tab-wrapper -with-height -default">
+                                <div class="tab-wrapper -with-height -default mobile-hide">
 									<ul class="nav tabs-default">
 										<li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#tab_gym">GYM</a>
@@ -160,9 +160,6 @@
 										</div>
 									</div>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>
@@ -413,7 +410,6 @@
 
 						</div>
 
-
 					</div>
                     </div>
 
@@ -459,7 +455,6 @@
 
                     <div class="section-contact -home04" id="to-contact">
 
-
                         <div class="halfheight bg-img04 -bordered">
 
                             <div class="section-heading "></div>
@@ -470,6 +465,7 @@
                                 </div>
 
                                 {% csrf_token %}
+
                                 {{form}}
 
                                 <!---->
@@ -547,8 +543,6 @@
                 });
                 feed.run();
             </script>
-
-
             <script>(function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
               if (d.getElementById(id)) return;

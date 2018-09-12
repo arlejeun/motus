@@ -19690,7 +19690,8 @@ main.main.-pt_toplg {
 
 @media (max-width: 1200px) {
   .section-top.-home04 .row .col-sm-12:first-child {
-    display: none;
+    /*display: none;*/
+    margin-bottom: 20px;
   }
   .section-top.-home04 ._content {
     padding-top: 20px;
