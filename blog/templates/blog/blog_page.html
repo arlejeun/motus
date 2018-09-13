@@ -9,7 +9,7 @@
 
     <main class="main">
 
-			{% image blog_index_page.specific.header_image original as my_image %}
+			{% image blog_index_page.specific.header_image format-jpeg jpegquality-40 as my_image %}
 			<section class="section-top-single" style="background-image:url({{ my_image.url }})">
 
 				<div class="container-fluid">
@@ -40,7 +40,7 @@
 										<p>{{ page.intro}}</p>
 
 										 {% if page.header_image %}
-											{% image page.header_image max-1000x500 as header_image %}
+											{% image page.header_image max-1000x500 format-jpeg jpegquality-40 as header_image %}
 											<img class="blog-img" src="{{ header_image.url }}" alt="">
 											<br>
 										{% endif %}

@@ -12,7 +12,7 @@
 						<div class="col-xl-7 col-sm-12" style="display:block">
 							<div class="img-wrap">
                                 {% if page.image %}
-                                    {% image page.image original as main_image %}
+                                    {% image page.image format-jpeg jpegquality-40 as main_image %}
                                     <img src="{{ main_image.url }}" alt="">
                                 {% endif %}
 							</div>
@@ -205,7 +205,7 @@
                                     <div class="slider-classes-home03 slider-classes-home03_js">
 
                                         {% for post in page.featured_section_1.specific.children|slice:"10" %}
-                                            {% image post.specific.header_image max-1000x500 as my_image %}
+                                            {% image post.specific.header_image max-1000x500 format-jpeg jpegquality-40 as my_image %}
 
                                         <div class="item" style="height:auto;">
                                             <a class="img-wrap" href="{% pageurl post %}" style="background-image:url({{ my_image.url }})"></a>
@@ -333,7 +333,7 @@
                                         <div class="item-aside">
                                             <div class="img-wrap">
                                                 {% if coach.header_image %}
-                                                {% image coach.header_image fill-300x300-c100 as header_image %}
+                                                {% image coach.header_image fill-300x300-c100 format-jpeg jpegquality-40 as header_image %}
                                                 <img src="{{ header_image.url }}" alt="">
                                                 {% endif %}
                                             </div>
@@ -387,7 +387,7 @@
                                         <div class="_header">
                                             <a class="img-wrap relative" href="{% pageurl post %}">
                                                 {% if post.specific.header_image %}
-                                                            {% image post.header_image max-500x200 as header_image %}
+                                                            {% image post.header_image max-500x200 format-jpeg jpegquality-40 as header_image %}
                                                                 <img src="{{ header_image.url }}" alt="">
                                                 {% endif %}
                                                 <h4 class="title -bottom">{{ post.title }}</h4>

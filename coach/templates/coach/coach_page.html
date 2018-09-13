@@ -17,7 +17,7 @@
 								<div class="img-wrap">
 
                                     {% if page.header_image %}
-											{% image page.header_image max-1000x500 as header_image %}
+											{% image page.header_image max-1000x500 format-jpeg jpegquality-40 as header_image %}
 											<img src="{{ header_image.url }}" alt="">
 									{% endif %}
 
