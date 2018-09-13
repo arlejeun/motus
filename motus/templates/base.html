@@ -35,10 +35,13 @@
     </head>
 
     <body class="{% block body_class %}{% endblock %} theme04">
-        {% wagtailuserbar %}
+
+		{% wagtailuserbar %}
 
         <header class="header">
+
 			<nav class="navbar navbar-toggleable-md">
+
 				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fa fa-bars"></i>
 				</button>
@@ -87,6 +90,7 @@
 
 				</div>
 			</nav>
+
 		</header>
 
         {% block content %}
@@ -101,7 +105,6 @@
 			<script type="text/javascript" src="{% static 'js/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/nouislider/nouislider.min.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
-			<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/tether/tether.min.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/shuffle/shuffle.min.js' %}"></script>
 			<script type="text/javascript" src="{% static 'js/slick-lightbox/slick-lightbox.min.js' %}"></script>

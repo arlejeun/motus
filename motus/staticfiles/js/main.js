@@ -498,7 +498,7 @@
 
 		var wait_animation = true;
 
-		$('a[href^="#to-"]').on('click', function(e) {
+		$('a[href^="/#to-"]').on('click', function(e) {
 			if ($(this).closest('header').hasClass('fixed-left')) {
 				var target = $(this.hash);
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
