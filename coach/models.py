@@ -52,7 +52,7 @@ class CoachIndexPage(RoutablePageMixin, Page):
         context = super(CoachIndexPage, self).get_context(request, *args, **kwargs)
         context['coach_index_page'] = self
         context['trainer_pages'] = self.trainer_pages
-        context['available_categories'] = CoachCategory.objects.annotate(Count('name'))[:5]
+        context['available_categories'] = CoachCategory.objects.values('name', 'slug').annotate(Count('name'))[:5]
         return context
 
     @route(r'^category/(?P<category>[-\w]+)/$')

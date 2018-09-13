@@ -204,7 +204,7 @@
 
                                     <div class="slider-classes-home03 slider-classes-home03_js">
 
-                                        {% for post in page.featured_section_1.specific.children|slice:"10" %}
+                                       {% for post in page.featured_section_1.specific.children|slice:"10" %}
                                             {% image post.specific.header_image max-1000x500 format-jpeg jpegquality-40 as my_image %}
 
                                         <div class="item" style="height:auto;">
@@ -236,58 +236,70 @@
                     </section>
         {% endif %}
 
-        <div class="section-wrapper">
+        <div class="section-wrapper" id="to-gallery">
 
             <section class="section-advantage -home04" id="to-advantage">
+
                 <div class="container-fluid">
+
                     <div class="row">
 
-                        <div class="col-md-6 col-lg-4" >
+                        <div class="col-md-12 col-lg-4" >
 
                             <div class="section-heading">
                                     <h2 class="lined -bot">Administration</h2>
                             </div>
 
 
-                            <div style="padding:0 40px;margin-bottom:30px">
-                                <ul class="list-chip">
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://awaiver.com/Sign/1154" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-tasks"></i>
-                                                <span class="title" style="padding-top:10px">Adult Waiver</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://app.iclasspro.com/parentportal/motus/classes" target="_blank" style="color:#fff;">
-                                                <i class="far fa-calendar-alt"></i>
-                                                <span class="title" style="padding-top:10px">Schedule</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://awaiver.com/Sign/1153" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-tasks"></i>
-                                                <span class="title" style="padding-top:10px">Kid Waiver</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://app.iclasspro.com/parentportal/motus" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-sign-in-alt"></i>
-                                                <span class="title" style="padding-top:10px">Parent Portal</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                 </ul>
+
+                        <div class="row">
+
+                                <div class="col-md-6 col-lg-10">
+                                    <ul class="list-chip">
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://awaiver.com/Sign/1154" target="_blank" style="color:#fff;">
+                                                    <i class="fas fa-tasks"></i>
+                                                    <span class="title" style="font-weight:400">Adult Waiver</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://app.iclasspro.com/parentportal/motus/classes" target="_blank" style="color:#fff;">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    <span class="title" style="font-weight:400">Schedule</span>
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                     </ul>
+                                </div>
+                                <div class="col-md-6 col-lg-10">
+                                    <ul class="list-chip">
+
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://awaiver.com/Sign/1153" target="_blank" style="color:#fff;">
+                                                    <i class="fas fa-tasks"></i>
+                                                    <span class="title" style="font-weight:400">Kid Waiver</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://app.iclasspro.com/parentportal/motus" target="_blank" style="color:#fff;">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                    <span class="title" style="font-weight:400">Parent Portal</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                     </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-8 mobile-hide" id="to-gallery">
+                        <div class="col-md-6 col-lg-8 mobile-hide">
                                  <div class="section-heading">
                                     <h2 class="lined -bot">Gallery</h2>
                                 </div>
@@ -326,7 +338,7 @@
                         <div class="col-lg-12">
                             <div class="slider-stories slider-stories-home02">
 
-                                {% for coach in page.featured_section_3.specific.children|slice:"10"%}
+                               {% for coach in page.featured_section_3.specific.children|slice:"10"%}
 
                                 <div>
                                     <div class="item">
@@ -439,9 +451,9 @@
                         </div>
                         <ul class="list-location">
                         <li>
-                            <ul class="list-contact" style="margin-left:10px">
+                            <ul class="list-contact" style="margin-top:50px">
                                 <li>
-                                    <i class="fa fa-map-marker"></i><span style="font-weight: bold;">725 NW Commerce Dr, Lee's Summit, MO 64086</span>
+                                    <i class="fa fa-map-marker"></i><span style="">725 NW Commerce Dr, Lee's Summit, MO 64086</span>
                                 </li>
                             </ul>
                         </li>
@@ -537,12 +549,15 @@
             {# Override this in templates to add extra javascript #}
             <script type="text/javascript" src="{% static 'js/instafeed/instafeed.min.js' %}"></script>
             <script type="text/javascript">
+                {% verbatim %}
                 var feed = new Instafeed({
                     get: 'user',
                     userId: '7083891990',
                     accessToken: '7083891990.049bc23.907dedd731d84f70b351b4ef81758d43',
+                    template: '<a href="{{link}}"><img src="{{image}}" /></a>',
                     limit:'14'
                 });
+                {% endverbatim %}
                 feed.run();
             </script>
             <script>(function(d, s, id) {

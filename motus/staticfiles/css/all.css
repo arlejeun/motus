@@ -12624,6 +12624,7 @@ select.bs-select-hidden, select.selectpicker {
 .section-coaches.-home04 {
   background-image: none;
   padding-bottom: 60px;
+  padding-top: 100px;
 }
 
 .section-coaches.-home04 h2 {
@@ -13399,12 +13400,12 @@ body {
 .section-advantage.-home04 {
   background: url(../images/bg-img-03.jpg) no-repeat center center/cover;
   color: #fff;
-  padding: 50px 0;
+  padding: 100px 0 50px;
 }
 
 .section-location {
   margin: 45px;
-  padding: 60px;
+  padding: 100px 30px 60px;
   background-color: #202020;
   color: #fff;
 }
@@ -13495,8 +13496,6 @@ body {
 }
 
 @media (max-width: 1300px) {
-
-     .mobile-hide {display:none}
 
 
   .section-wrapper {
@@ -14955,7 +14954,7 @@ ul, ol {
 }
 
 .list-chip .icon-wrap {
-  font-size: 60px;
+  font-size: 40px;
 }
 
 .list-default li {
@@ -17429,7 +17428,7 @@ ol.list-default li:before {
 }
 
 .section-blog {
-  padding: 60px 0;
+  padding: 100px 0 80px;
 }
 
 .section-blog .btn-wrapper {

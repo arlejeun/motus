@@ -1,8 +1,9 @@
 from django.db import models
 from django import forms
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from base.blocks import BaseStreamBlock
 from wagtail.snippets.models import register_snippet
 from wagtail.images.edit_handlers import ImageChooserPanel
 from taggit.models import TaggedItemBase, Tag as TaggitTag
@@ -62,7 +63,7 @@ class BlogIndexPage(RoutablePageMixin, Page):
         context = super(BlogIndexPage, self).get_context(request, *args, **kwargs)
         context['blog_pages'] = self.blog_pages
         context['blog_index_page'] = self
-        context['available_categories'] = BlogCategory.objects.annotate(Count('name'))[:5]
+        context['available_categories'] = BlogCategory.objects.values('name', 'slug').annotate(Count('name'))[:5]
         return context
 
     def get_posts(self):
@@ -128,7 +129,9 @@ class BlogIndexPage(RoutablePageMixin, Page):
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    #body = RichTextField(blank=True)
+
+    body = StreamField(BaseStreamBlock(), verbose_name="Description", blank=True)
 
     header_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -144,7 +147,7 @@ class BlogPage(Page):
         FieldPanel('date'),
         FieldPanel('intro'),
         ImageChooserPanel('header_image'),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags')
     ]
