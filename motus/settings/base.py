@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.routable_page',
     'modelcluster',
     'taggit',
+    'widget_tweaks',
 
     'wagtailfontawesome',
 
