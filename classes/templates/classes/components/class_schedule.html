@@ -1,44 +1,74 @@
 {% load class_schedule_tags%}
 
 <section class="section-timetable">
-				<div class="container-fluid">
 
+                <div class="cd-schedule loading">
+						<div class="timeline">
+							<ul>
+								<li><span>09:00</span></li>
+								<li><span>09:30</span></li>
+								<li><span>10:00</span></li>
+								<li><span>10:30</span></li>
+								<li><span>11:00</span></li>
+								<li><span>11:30</span></li>
+								<li><span>12:00</span></li>
+								<li><span>12:30</span></li>
+								<li><span>13:00</span></li>
+								<li><span>13:30</span></li>
+								<li><span>14:00</span></li>
+								<li><span>14:30</span></li>
+								<li><span>15:00</span></li>
+								<li><span>15:30</span></li>
+								<li><span>16:00</span></li>
+								<li><span>16:30</span></li>
+								<li><span>17:00</span></li>
+								<li><span>17:30</span></li>
+								<li><span>18:00</span></li>
+							</ul>
+						</div> <!-- .timeline -->
 
-                   <div class="offset-lg-1 col-lg-10 col-md-12">
-							<div class="timetable-wrap -default -inner">
-
-                                {% for weekday in weekdays_schedule %}
-
-                                <div class="timetable-col">
-
-                                    {% for mykey,items in weekday.items %}
-
-                                    <div class="timetable-title">
-										<h5>{{mykey}}</h5>
-									</div>
-
-                                        {% for item in items %}
-
-                                            <div class="timetable-cell">
-
-                                                <div class="timetable-item f-beginners">
-                                                    <div class="item-body">
-                                                        <span class="time">{{item.time}}</span>
-                                                        <span class="naming">{{item.category}}</span>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        {% endfor %}
+						<div class="events">
+							<ul>
+                              {% for weekday in weekdays_schedule %}
+                                <li class="events-group">
+                                        {% for mykey,items in weekday.items %}
+									        <div class="top-info"><span>{{mykey}}</span></div>
+        									<ul>
+                                                {% for item in items %}
+                                                    <li class="single-event" data-start="{{item.time|begin}}" data-end="{{item.time|end}}" data-content="{{item.category|my_slugify}}" data-event="{{weekdays_schedule|map_color:item.category}}">
+                                                        <a href="#0">
+                                                            <em class="event-name">{{item.category}}</em>
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+									        </ul>
                                     {% endfor %}
-
-                                     </div>
-
+								</li>
                                 {% endfor %}
-
-
-
+							</ul>
 						</div>
-					</div>
-				</div>
+
+						<div class="event-modal">
+							<header class="header">
+								<div class="content">
+									<span class="event-date"></span>
+									<h3 class="event-name"></h3>
+								</div>
+
+								<div class="header-bg"></div>
+							</header>
+
+							<div class="body">
+								<div class="event-info"></div>
+								<div class="body-bg"></div>
+							</div>
+
+							<a href="#0" class="close">Close</a>
+						</div>
+
+						<div class="cover-layer"></div>
+					</div> <!-- .cd-schedule -->
+
+
+
 			</section>

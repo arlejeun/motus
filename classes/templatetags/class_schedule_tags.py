@@ -1,4 +1,8 @@
 from django.template import Library, loader
+from django.template.defaultfilters import stringfilter
+from django.utils.safestring import mark_safe, SafeData
+import re
+
 
 register = Library()
 
@@ -50,6 +54,19 @@ def filter_sessions(schedule, day):
     return options[day]
 
 
+def map_events(categories, cat):
+    refs = ['event-1', 'event-2','event-3', 'event-4']
+    events = []
+    for day_act in categories:
+        if day_act is not None:
+            for k, v in day_act.items():
+                for act in v:
+                    events.append(act['category'])
+    events = list(set(events))
+
+    return refs[events.index(cat)]
+
+
 @register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
 def render_schedule(context, schedule):
 
@@ -69,9 +86,11 @@ def render_schedule(context, schedule):
 
     weekdays_schedule.sort(key=weekday_sorter)
 
-    for dic in weekdays_schedule:
+
+    '''for dic in weekdays_schedule:
         for lst in list(dic.values()):
             lst.sort(key=time_sorter)
+    '''
 
     return {'request': context['request'], 'schedule': schedule,
             'weekdays_schedule': weekdays_schedule}
@@ -86,3 +105,29 @@ def class_schedule(context):
 @register.filter(name='split')
 def split(value):
     return value.split(';')
+
+
+@register.filter(name='begin')
+def begin(value):
+    return value.split('-')[0]
+
+
+@register.filter(name='end')
+def end(value):
+    return value.split('-')[1]
+
+
+@register.filter(is_safe=True, needs_autoescape=True)
+@stringfilter
+def my_slugify(value, autoescape=None):
+    value = re.sub('[^\w\s-]', '', value).strip().lower()
+    return mark_safe(re.sub('[-\s]', '-', value))
+
+
+@register.filter(name='map_color', takes_context=True)
+def map_color(categories, category):
+    event_type = map_events(categories, category)
+    return event_type
+
+
+
