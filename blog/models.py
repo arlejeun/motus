@@ -21,10 +21,11 @@ class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='post_tags')
 
 
-@register_snippet
+'''@register_snippet
 class Tag(TaggitTag):
     class Meta:
         proxy = True
+'''
 
 
 @register_snippet
@@ -96,12 +97,13 @@ class BlogIndexPage(RoutablePageMixin, Page):
             raise Http404
         return Page.serve(post_page, request, *args, **kwargs)
 
-    @route(r'^tag/(?P<tag>[-\w]+)/$')
+    '''@route(r'^tag/(?P<tag>[-\w]+)/$')
     def post_by_tag(self, request, tag, *args, **kwargs):
         self.search_type = 'tag'
         self.search_term = tag
         self.blog_pages = self.get_posts().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
+    '''
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def post_by_category(self, request, category, *args, **kwargs):
@@ -141,7 +143,7 @@ class BlogPage(Page):
     )
 
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
-    tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
+    # tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
@@ -149,7 +151,7 @@ class BlogPage(Page):
         ImageChooserPanel('header_image'),
         StreamFieldPanel('body'),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
-        FieldPanel('tags')
+        # FieldPanel('tags')
     ]
 
     @property
