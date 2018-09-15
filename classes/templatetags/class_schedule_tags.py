@@ -13,11 +13,12 @@ def weekday_sorter(dic):
     return {'MONDAY': 1, 'TUESDAY': 2, 'WEDNESDAY': 3, 'THURSDAY': 4, 'FRIDAY': 5, 'SATURDAY': 6}[day]
 
 
-def time_sorter(dic):
+'''def time_sorter(dic):
     hour_str = dic['time']
     hour = hour_str[:-2].replace(':', '0')
     am_pm = hour_str[-2:]
     return am_pm, int(hour)
+'''
 
 
 def is_monday(session):
