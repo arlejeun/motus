@@ -1,4 +1,4 @@
-{% load static wagtailuserbar wagtailcore_tags %}
+{% load static wagtailuserbar wagtailcore_tags cache %}
 
 
 <html class="no-js">
@@ -33,6 +33,12 @@
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
+
+
+    {% load cache %}
+
+    {% cache 900 base request.path request.user.username self.pk self.latest_revision_created_at|date:"c" %}
+
 
     <body class="{% block body_class %}{% endblock %} theme04">
 
@@ -93,6 +99,8 @@
 
 		</header>
 
+
+
         {% block content %}
 
 		{% endblock %}
@@ -125,4 +133,7 @@
 			{# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>
+
+    {% endcache %}
+
 </html>

@@ -5,3 +5,5 @@ gunicorn==19.7.1
 psycopg2
 psycopg2-binary
 django-widget-tweaks
+django-debug-toolbar
+django-redis
