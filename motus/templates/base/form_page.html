@@ -1,90 +1,193 @@
-{% extends "base.html" %}
-{% load wagtailcore_tags widget_tweaks %}
+{% load static wagtailuserbar wagtailcore_tags widget_tweaks %}
 
-{% block content %}
 
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="Motus Ninja Warrior Free Trial Registration" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/pages/_theme04.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/motus.css' %}">
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+
+    </head>
+
+
+    <body class="theme04">
+
+        <header class="header">
+
+			<nav class="navbar navbar-toggleable-md">
+
+				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="/">
+					<img src="{% static 'images/motusfit_logo.jpg' format-jpeg jpegquality-40 %}" alt="">
+				</a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent" aria-expanded="false">
+					<ul class="navbar-nav m-auto" id="navbar-scrollspy">
+						<li class="nav-item active">
+							<a class="nav-link active" href="/#to-top">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-classes">Programs</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-advantage">Enrollment</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mobile-hide" href="/#to-gallery">Gallery</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-coaches">Crew</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-blog">Our Events</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="/#to-location">Location</a>
+						</li>
+
+                        <li class="nav-item">
+							<a class="nav-link" href="/#to-contact">Contact Us</a>
+						</li>
+					</ul>
+
+					<ul class="navbar-nav navbar-right search-link navbar-search">
+						<li class="nav-item">
+							<i class="fa fa-phone"></i><a href="tel:1-816-347-8008"><span style="color:#020202;font-weight:bold"> 816-347-8008</span></a>
+						</li>
+
+					</ul>
+
+				</div>
+			</nav>
+
+		</header>
 
 
         <div class="section-contact -home04" id="to-contact">
 
-                        <div class="halfheight bg-img-form -bordered">
+            <div class="halfheight bg-img-form -bordered">
 
-                            <div class="section-heading "></div>
-                            <form class="form-contact" action="{% pageurl page.specific %}" method="POST">
-                                <div class="section-heading text-center">
-                                    <h2 class="lined -bot d-inline-block">{{ page.title }}</h2>
-                                    <p class="subheading">{{ page.specific.intro|richtext }}</p>
-                                </div>
+                <div class="section-heading "></div>
+                <form class="form-contact" action="{% pageurl page.specific %}" method="POST">
+                    <div class="section-heading text-center">
+                        <h2 class="lined -bot d-inline-block">{{ page.title }}</h2>
+                        <p class="subheading">{{ page.specific.intro|richtext }}</p>
+                    </div>
 
-                                {% csrf_token %}
+                    {% csrf_token %}
 
-                                {% if form.non_field_errors %}
-                                  <div class="alert alert-danger" role="alert">
-                                    {% for error in form.non_field_errors %}
-                                      {{ error }}
-                                    {% endfor %}
-                                  </div>
-                                {% endif %}
+                    {% if form.non_field_errors %}
+                      <div class="alert alert-danger" role="alert">
+                        {% for error in form.non_field_errors %}
+                          {{ error }}
+                        {% endfor %}
+                      </div>
+                    {% endif %}
 
-                                <div class="row">
-                                {% for field in form.visible_fields %}
+                    <div class="row">
+                    {% for field in form.visible_fields %}
 
-                                    {% if field.name == 'additional-info' %}
-                                      <div class="col-md-12 mb-3">
-                                        {{ field.label_tag }}
-                                        {% render_field field|append_attr:"style:background-color:#202020;color:#2ce41f" %}
-                                      </div>
+                        {% if field.name == 'additional-info' %}
+                          <div class="col-md-12 mb-3">
+                            {{ field.label_tag }}
+                            {% render_field field|append_attr:"style:background-color:#202020;color:#2ce41f" %}
+                          </div>
 
-                                    {% else %}
+                        {% else %}
 
-                                      <div class="col-md-6 mb-3">
-                                        {{ field.label_tag }}
-                                        {% render_field field|append_attr:"style:background-color:#202020;color:#2ce41f" %}
-                                      </div>
+                          <div class="col-md-6 mb-3">
+                            {{ field.label_tag }}
+                            {% render_field field|append_attr:"style:background-color:#202020;color:#2ce41f" %}
+                          </div>
 
-                                    {% endif %}
+                        {% endif %}
 
-                                {% endfor %}
+                    {% endfor %}
 
-                                </div>
-                                <!---->
-                                <div class="text-right" style="margin-top: 15px;">
-                                    <button class="btn btn-primary" type="submit">Submit Free Trial Registration</button>
-                                </div>
+                    </div>
+                    <!---->
+                    <div class="text-right" style="margin-top: 15px;">
+                        <button class="btn btn-primary" type="submit">Submit Free Trial Registration</button>
+                    </div>
 
-                            </form>
+                </form>
 
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row justify-content-between">
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-between">
 
-                                <div class="col-md-3 col-sm-6 justify-content-center">
+                    <div class="col-md-3 col-sm-6 justify-content-center">
 
-                                    <div class="item-contact">
-                                            <h5 class="" style="margin-top:15px">Office Hours</h5>
-                                        <p style="margin-bottom: 0;">Monday-Friday: 10am-8pm</p>
-                                        <p>Saturday: 12pm-7pm</p>
-                                    </div>
-
-                                    <div class="item-contact">
-                                            <h5 class="">Social links</h5>
-                                            <div class="social">
-                                                <a class="fa fa-facebook" href="https://www.facebook.com/motusfitls/" target="_blank"></a>
-                                                <a class="fa fa-instagram" href="https://www.instagram.com/motusfit/" target="_blank"></a>
-                                            </div>
-                                    </div>
-
-                                    <div class="item-contact">
-                                            <h5 class="">Phone Number</h5>
-                                            <i class="fa fa-phone"></i><a href="tel:1-816-347-8008"><span style="color:#fff">816-347-8008</span></a>
-                                    </div>
-
-                                </div>
-                            </div>
+                        <div class="item-contact">
+                                <h5 class="" style="margin-top:15px">Office Hours</h5>
+                            <p style="margin-bottom: 0;">Monday-Friday: 10am-8pm</p>
+                            <p>Saturday: 12pm-7pm</p>
                         </div>
 
-                     </div>
+                        <div class="item-contact">
+                                <h5 class="">Social links</h5>
+                                <div class="social">
+                                    <a class="fa fa-facebook" href="https://www.facebook.com/motusfitls/" target="_blank"></a>
+                                    <a class="fa fa-instagram" href="https://www.instagram.com/motusfit/" target="_blank"></a>
+                                </div>
+                        </div>
+
+                        <div class="item-contact">
+                                <h5 class="">Phone Number</h5>
+                                <i class="fa fa-phone"></i><a href="tel:1-816-347-8008"><span style="color:#fff">816-347-8008</span></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+         </div>
+
+        {# Global javascript #}
+
+		 <script type="text/javascript" src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
+	     <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/bootstrap_select/bootstrap-select.min.js' %}"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78956920-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-78956920-2');
+		</script>
 
 
+    </body>
 
-{% endblock content %}
+</html>
+
