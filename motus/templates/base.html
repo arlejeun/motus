@@ -1,6 +1,5 @@
 {% load static wagtailuserbar wagtailcore_tags cache %}
 
-
 <html class="no-js">
     <head>
         <meta charset="utf-8" />
@@ -14,7 +13,7 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
+        <meta name="description" content="Motus Ninja Warrior Official Website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
 
@@ -28,6 +27,12 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+
+		<meta property="og:title" content="Motus Ninja Warrior Official Website" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.motusninjawarrior.com" />
+		<meta property="og:image" content="https://www.motusninjawarrior.com/media/images/Registration_Form.jpg" />
+
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
