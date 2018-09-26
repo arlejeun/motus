@@ -1,4 +1,4 @@
-{% load static wagtailuserbar wagtailcore_tags cache %}
+{% load static wagtailuserbar wagtailimages_tags wagtailcore_tags cache %}
 
 <html class="no-js">
     <head>
@@ -30,9 +30,16 @@
 
 		<meta property="og:title" content="Motus Ninja Warrior Official Website" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://www.motusninjawarrior.com" />
-		<meta property="og:image" content="https://www.motusninjawarrior.com/media/images/Registration_Form.jpg" />
+		<meta property="og:url" content="https://motusninjawarrior.com" />
 
+		{% if page.image %}
+			{% image page.image format-jpeg jpegquality-40 as main_image %}
+			<meta property="og:image" content="{{ main_image.url }}" />
+		{% endif %}
+
+		{% if page.image %}
+			<meta property="og:description" content="{{ page.hero_text }}" />
+		{% endif %}
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
