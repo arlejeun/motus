@@ -37,9 +37,12 @@
 			<meta property="og:image" content="{{ main_image.url }}" />
 		{% endif %}
 
-		{% if page.image %}
+		{% if page.hero_text %}
 			<meta property="og:description" content="{{ page.hero_text }}" />
+		{% else %}
+			<meta property="og:description" content="Join us for a unique ninja and fitness experience at Motus" />
 		{% endif %}
+
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
