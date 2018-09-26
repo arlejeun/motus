@@ -71,7 +71,7 @@ class BlogIndexPage(RoutablePageMixin, Page):
         return BlogPage.objects.descendant_of(self).live().order_by('-date')
 
     def children(self):
-        return self.get_children().specific().live()
+        return self.get_children().specific().live().order_by('-first_published_at')
 
 
     @route(r'^(\d{4})/$')
