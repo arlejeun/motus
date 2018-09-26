@@ -2,7 +2,8 @@
 
 {% load static wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags class_schedule_tags %}
 
-{% block content %}
+
+    {% block content %}
 
 
 		<main class=" theme04 main -pd_top0">
@@ -398,7 +399,7 @@
 
                                 {% for post in page.featured_section_2.specific.children|slice:"3" %}
 
-                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="{{ post.specific.date }}" data-title="Motus Events">
                                     <div class="blog-item -default -no-shadow">
                                         <div class="_header">
                                             <a class="img-wrap relative" href="{% pageurl post %}">
