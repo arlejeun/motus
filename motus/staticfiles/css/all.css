@@ -3318,9 +3318,14 @@ tbody.collapse.show {
     padding-right: 0;
     padding-left: 0;
   }
+  .mobile-only {
+    padding: 30px;
+  }
+
 }
 
 @media (min-width: 576px) {
+  .mobile-only {display:none}
   .navbar-toggleable {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
