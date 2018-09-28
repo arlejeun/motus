@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags wagtailroutablepage_tags wagtailimages_tags class_schedule_tags class_schedule_tags%}
+{% load wagtailcore_tags wagtailroutablepage_tags wagtailimages_tags class_schedule_tags%}
 
 {% block body_class %}template-trainingpage{% endblock %}
 
@@ -39,7 +39,7 @@
 				</div>
 			</section>
 
-		<div>
+        <div>
 
 			<div class="container-fluid offset-lg-1 col-lg-10 col-md-12 mobile-hide" style="padding-top:60px">
 
@@ -48,9 +48,20 @@
                 {% render_schedule page.specific.get_schedule %}
 
 			</div>
+
         </div>
 
+        <div>
 
+            <div class="mobile-only">
+
+                    <h3 style="margin-top:20px">WEEKLY SCHEDULE</h3>
+
+                    {% render_mobile_schedule page.specific.get_schedule %}
+
+            </div>
+
+        </div>
 
 		</main>
 

@@ -87,20 +87,24 @@ def render_schedule(context, schedule):
 
     weekdays_schedule.sort(key=weekday_sorter)
 
-
-    '''for dic in weekdays_schedule:
-        for lst in list(dic.values()):
-            lst.sort(key=time_sorter)
-    '''
-
     return {'request': context['request'], 'schedule': schedule,
             'weekdays_schedule': weekdays_schedule}
 
 
-'''@register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
-def class_schedule(context):
-    return {'request': context['request']}
+'''@register.inclusion_tag('classes/components/class_mobile_schedule.html',  takes_context=True)
+def render_mobile_schedule(context, schedule):
+    weekdays_schedule = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+    display_schedule = schedule.stream_data
+
+    return {'request': context['request'], 'schedule': display_schedule,
+            'weekdays_schedule': weekdays_schedule}
 '''
+
+
+@register.inclusion_tag('classes/components/class_mobile_schedule.html')
+def render_mobile_schedule(schedule):
+    display_schedule = schedule.stream_data
+    return {'schedule': display_schedule}
 
 
 @register.filter(name='split')
