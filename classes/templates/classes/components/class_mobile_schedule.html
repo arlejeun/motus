@@ -1,0 +1,34 @@
+{% load class_schedule_tags%}
+
+<section style="margin-top:30px">
+
+					<div class="events">
+
+						<ul>
+
+						  {% for entry in schedule %}
+
+							<h5>{{entry.value.day}}</h5>
+
+							<div class="row" style="margin:20px 10px">
+							  <div class="col-6">
+								  <p>{{entry.value.category}}</p>
+							  </div>
+							  <div class="col-6">
+								  <ul>
+									  {% for t in entry.value.times %}
+									  	<li>{{t}}</li>
+									  {% endfor %}
+								  </ul>
+
+							  </div>
+
+							</div>
+
+
+							{% endfor %}
+						</ul>
+
+					</div>
+
+</section>

@@ -1,5 +1,4 @@
-{% load static wagtailuserbar%}
-
+{% load static wagtailuserbar wagtailimages_tags wagtailcore_tags cache %}
 
 <html class="no-js">
     <head>
@@ -14,7 +13,7 @@
                 {% endwith %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
+        <meta name="description" content="Motus Ninja Warrior Official Website" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
 
@@ -29,32 +28,57 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
 
+		<meta property="og:title" content="Motus Ninja Warrior Official Website" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://motusninjawarrior.com" />
+
+		{% if page.image %}
+			{% image page.image format-jpeg jpegquality-40 as main_image %}
+			<meta property="og:image" content="{{ main_image.url }}" />
+		{% endif %}
+
+		{% if page.hero_text %}
+			<meta property="og:description" content="{{ page.hero_text }}" />
+		{% else %}
+			<meta property="og:description" content="Join us for a unique ninja and fitness experience at Motus" />
+		{% endif %}
+
+
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
+
+    {% load cache %}
+
+    {% cache 900 base request.path request.user.username self.pk self.latest_revision_created_at|date:"c" %}
+
+
     <body class="{% block body_class %}{% endblock %} theme04">
-        {% wagtailuserbar %}
+
+		{% wagtailuserbar %}
 
         <header class="header">
+
 			<nav class="navbar navbar-toggleable-md">
+
 				<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand" href="/">
-					<img src="{% static 'images/motusfit_logo.jpg' %}" alt="">
+					<img src="{% static 'images/motusfit_logo.jpg' format-jpeg jpegquality-40 %}" alt="">
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent" aria-expanded="false">
 					<ul class="navbar-nav m-auto" id="navbar-scrollspy">
 						<li class="nav-item active">
-							<a class="nav-link active" href="/#to-top">Main</a>
+							<a class="nav-link active" href="/#to-top">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-classes">Training</a>
+							<a class="nav-link" href="/#to-classes">Programs</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-advantage">Administration</a>
+							<a class="nav-link" href="/#to-advantage">Enrollment</a>
 						</li>
 
 						<li class="nav-item">
@@ -62,15 +86,11 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-coaches">Team</a>
+							<a class="nav-link" href="/#to-coaches">Crew</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="/#to-blog">Our Story</a>
-						</li>
-
-						<li class="nav-item">
-							<a class="nav-link mobile-hide" href="/#to-schedule">Schedule</a>
+							<a class="nav-link" href="/#to-blog">Our Events</a>
 						</li>
 
 						<li class="nav-item">
@@ -91,25 +111,44 @@
 
 				</div>
 			</nav>
+
 		</header>
 
-        {% block content %}{% endblock %}
+
+
+        {% block content %}
+
+		{% endblock %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/motus.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/tether/tether.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/shuffle/shuffle.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/nouislider/nouislider.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/bootstrap_select/bootstrap-select.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/slick-lightbox/slick-lightbox.min.js' %}"></script>
-		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+		 <script type="text/javascript" src="{% static 'js/jquery/jquery-3.2.1.min.js' %}"></script>
+	     <script type="text/javascript" src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/bootstrap_select/bootstrap-select.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+         <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/nouislider/nouislider.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/shuffle/shuffle.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/slick-lightbox/slick-lightbox.min.js' %}"></script>
+		 <script type="text/javascript" src="{% static 'js/tether/tether.min.js' %}"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78956920-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-78956920-2');
+		</script>
+
+
 
         {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
+			{# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>
+
+    {% endcache %}
+
 </html>

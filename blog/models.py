@@ -1,8 +1,9 @@
 from django.db import models
 from django import forms
 from wagtail.core.models import Page
-from wagtail.core.fields import RichTextField
-from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.core.fields import RichTextField, StreamField
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from base.blocks import BaseStreamBlock
 from wagtail.snippets.models import register_snippet
 from wagtail.images.edit_handlers import ImageChooserPanel
 from taggit.models import TaggedItemBase, Tag as TaggitTag
@@ -20,10 +21,11 @@ class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='post_tags')
 
 
-@register_snippet
+'''@register_snippet
 class Tag(TaggitTag):
     class Meta:
         proxy = True
+'''
 
 
 @register_snippet
@@ -62,14 +64,14 @@ class BlogIndexPage(RoutablePageMixin, Page):
         context = super(BlogIndexPage, self).get_context(request, *args, **kwargs)
         context['blog_pages'] = self.blog_pages
         context['blog_index_page'] = self
-        context['available_categories'] = BlogCategory.objects.annotate(Count('name'))[:5]
+        context['available_categories'] = BlogCategory.objects.values('name', 'slug').annotate(Count('name'))[:5]
         return context
 
     def get_posts(self):
         return BlogPage.objects.descendant_of(self).live().order_by('-date')
 
     def children(self):
-        return self.get_children().specific().live()
+        return self.get_children().specific().live().order_by('-first_published_at')
 
 
     @route(r'^(\d{4})/$')
@@ -95,12 +97,13 @@ class BlogIndexPage(RoutablePageMixin, Page):
             raise Http404
         return Page.serve(post_page, request, *args, **kwargs)
 
-    @route(r'^tag/(?P<tag>[-\w]+)/$')
+    '''@route(r'^tag/(?P<tag>[-\w]+)/$')
     def post_by_tag(self, request, tag, *args, **kwargs):
         self.search_type = 'tag'
         self.search_term = tag
         self.blog_pages = self.get_posts().filter(tags__slug=tag)
         return Page.serve(self, request, *args, **kwargs)
+    '''
 
     @route(r'^category/(?P<category>[-\w]+)/$')
     def post_by_category(self, request, category, *args, **kwargs):
@@ -128,7 +131,9 @@ class BlogIndexPage(RoutablePageMixin, Page):
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
-    body = RichTextField(blank=True)
+    #body = RichTextField(blank=True)
+
+    body = StreamField(BaseStreamBlock(), verbose_name="Description", blank=True)
 
     header_image = models.ForeignKey(
         'wagtailimages.Image',
@@ -138,15 +143,15 @@ class BlogPage(Page):
     )
 
     categories = ParentalManyToManyField('blog.BlogCategory', blank=True)
-    tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
+    # tags = ClusterTaggableManager(through='blog.BlogPageTag', blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('date'),
         FieldPanel('intro'),
         ImageChooserPanel('header_image'),
-        FieldPanel('body', classname="full"),
+        StreamFieldPanel('body'),
         FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
-        FieldPanel('tags')
+        # FieldPanel('tags')
     ]
 
     @property

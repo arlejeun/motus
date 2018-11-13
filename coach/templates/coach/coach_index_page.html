@@ -2,7 +2,7 @@
 
 {% load static wagtailcore_tags wagtailroutablepage_tags wagtailimages_tags %}
 
-{% block body_class %}template-coachindexpage{% endblock %}
+{% block body_class %} template-coachindexpage {% endblock %}
 
 {% block content %}
 
@@ -34,7 +34,7 @@
 								<div class="item -half d-flex align-items-center filter-item shuffle-item shuffle-item--visible" data-groups="{{coach.categories}}" style="position: absolute; visibility: visible; will-change: transform; opacity: 1; transition-duration: 400ms, 400ms; transition-timing-function: ease, ease; transition-property: transform, opacity;">
 									<div class="img-wrap">
 										{% if coach.header_image %}
-                                        {% image coach.header_image fill-300x300-c100 as header_image %}
+                                        {% image coach.header_image fill-300x300-c100 format-jpeg jpegquality-40 as header_image %}
                                             <img src="{{ header_image.url }}" alt="">
                                         {% endif %}
 									</div>

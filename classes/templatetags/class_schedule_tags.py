@@ -1,4 +1,8 @@
 from django.template import Library, loader
+from django.template.defaultfilters import stringfilter
+from django.utils.safestring import mark_safe, SafeData
+import re
+
 
 register = Library()
 
@@ -9,11 +13,12 @@ def weekday_sorter(dic):
     return {'MONDAY': 1, 'TUESDAY': 2, 'WEDNESDAY': 3, 'THURSDAY': 4, 'FRIDAY': 5, 'SATURDAY': 6}[day]
 
 
-def time_sorter(dic):
+'''def time_sorter(dic):
     hour_str = dic['time']
     hour = hour_str[:-2].replace(':', '0')
     am_pm = hour_str[-2:]
     return am_pm, int(hour)
+'''
 
 
 def is_monday(session):
@@ -50,6 +55,19 @@ def filter_sessions(schedule, day):
     return options[day]
 
 
+def map_events(categories, cat):
+    refs = ['event-1', 'event-2','event-3', 'event-4']
+    events = []
+    for day_act in categories:
+        if day_act is not None:
+            for k, v in day_act.items():
+                for act in v:
+                    events.append(act['category'])
+    events = list(set(events))
+
+    return refs[events.index(cat)]
+
+
 @register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
 def render_schedule(context, schedule):
 
@@ -69,20 +87,52 @@ def render_schedule(context, schedule):
 
     weekdays_schedule.sort(key=weekday_sorter)
 
-    for dic in weekdays_schedule:
-        for lst in list(dic.values()):
-            lst.sort(key=time_sorter)
-
     return {'request': context['request'], 'schedule': schedule,
             'weekdays_schedule': weekdays_schedule}
 
 
-'''@register.inclusion_tag('classes/components/class_schedule.html', takes_context=True)
-def class_schedule(context):
-    return {'request': context['request']}
+'''@register.inclusion_tag('classes/components/class_mobile_schedule.html',  takes_context=True)
+def render_mobile_schedule(context, schedule):
+    weekdays_schedule = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+    display_schedule = schedule.stream_data
+
+    return {'request': context['request'], 'schedule': display_schedule,
+            'weekdays_schedule': weekdays_schedule}
 '''
+
+
+@register.inclusion_tag('classes/components/class_mobile_schedule.html')
+def render_mobile_schedule(schedule):
+    display_schedule = schedule.stream_data
+    return {'schedule': display_schedule}
 
 
 @register.filter(name='split')
 def split(value):
     return value.split(';')
+
+
+@register.filter(name='begin')
+def begin(value):
+    return value.split('-')[0]
+
+
+@register.filter(name='end')
+def end(value):
+    return value.split('-')[1]
+
+
+@register.filter(is_safe=True, needs_autoescape=True)
+@stringfilter
+def my_slugify(value, autoescape=None):
+    value = re.sub('[^\w\s-]', '', value).strip().lower()
+    return mark_safe(re.sub('[-\s]', '-', value))
+
+
+@register.filter(name='map_color', takes_context=True)
+def map_color(categories, category):
+    event_type = map_events(categories, category)
+    return event_type
+
+
+

@@ -2,32 +2,36 @@
 
 {% load static wagtailimages_tags wagtailcore_tags wagtailroutablepage_tags class_schedule_tags %}
 
-{% block content %}
+
+    {% block content %}
 
 
 		<main class=" theme04 main -pd_top0">
 			<section class="section-top -home04" id="to-top">
-				<div class="container-fluid _content">
+				<div class="container-fluid _content" style="background-color:#202020;margin-bottom:25px" >
 					<div class="row justify-content-center align-items-center">
-						<div class="col-xl-7 col-sm-12">
+						<div class="col-xl-7 col-sm-12" style="display:block">
 							<div class="img-wrap">
                                 {% if page.image %}
-                                    {% image page.image original as main_image %}
+                                    {% image page.image format-jpeg jpegquality-40 as main_image %}
                                     <img src="{{ main_image.url }}" alt="">
                                 {% endif %}
 							</div>
 						</div>
-						<div class="col-xl-5 col-sm-12" style="padding-left: 10px;">
-                            <div class="row" style="margin-bottom:100px"></div>
+						<div class="col-xl-5 col-sm-12" style="padding-left: 10px">
+                            <div class="row mobile-hide" style="margin-bottom:100px"></div>
 							<div class="heading-wrapper">
-								<h1>{{ page.hero_text }}</h1>
-								<p class="subheading">{{ page.hero_sub_text }} </p>
-								<a class="btn btn-secondary" href="{% pageurl page.hero_cta_link %}">
-									<span>{{ page.hero_cta }}</span>
-									<i class="fa fa-arrow-right"></i>
-								</a>
+								<h1 style="color:#ffffff">{{ page.hero_text }}</h1>
+								<p class="subheading" style="color:#ffffff">{{ page.hero_sub_text }} </p>
 
-                                <div class="tab-wrapper -with-height -default">
+                                <div style ="text-align: center;margin-top: 60px;padding-bottom:30px">
+                                    <a class="btn btn-secondary" style="border-radius: 30px" href="{% pageurl page.hero_cta_link %}">
+                                        <span>{{ page.hero_cta }}</span>
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+
+                                <!--<div class="tab-wrapper -with-height -default mobile-hide">
 									<ul class="nav tabs-default">
 										<li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#tab_gym">GYM</a>
@@ -159,9 +163,7 @@
 											</ul>
 										</div>
 									</div>
-								</div>
-
-
+								</div>-->
 
 							</div>
 						</div>
@@ -192,7 +194,7 @@
                                 <div class="offset-lg-1 col-lg-10 col-md-12">
                                     <div class="section-heading d-flex justify-content-between align-items-center">
                                         <h2 class="lined -bot">{{ page.featured_section_1_title }}</h2>
-                                        <div class="title-link">
+                                        <div class="title-link" style="text-align: right;">
                                             <a class="link -black" href="{% pageurl page.featured_section_1 %}">
                                                 <span>View all classes</span>
                                                 <i class="fa fa-arrow-right"></i>
@@ -207,8 +209,8 @@
 
                                     <div class="slider-classes-home03 slider-classes-home03_js">
 
-                                        {% for post in page.featured_section_1.specific.children|slice:"10" %}
-                                            {% image post.specific.header_image max-1000x500 as my_image %}
+                                       {% for post in page.featured_section_1.specific.children|slice:"10" %}
+                                            {% image post.specific.header_image max-1000x500 format-jpeg jpegquality-40 as my_image %}
 
                                         <div class="item" style="height:auto;">
                                             <a class="img-wrap" href="{% pageurl post %}" style="background-image:url({{ my_image.url }})"></a>
@@ -239,58 +241,70 @@
                     </section>
         {% endif %}
 
-        <div class="section-wrapper">
+        <div class="section-wrapper" id="to-gallery">
 
             <section class="section-advantage -home04" id="to-advantage">
+
                 <div class="container-fluid">
+
                     <div class="row">
 
-                        <div class="col-md-6 col-lg-4" >
+                        <div class="col-xs-12 col-md-12 col-lg-4" >
 
                             <div class="section-heading">
-                                    <h2 class="lined -bot">Administration</h2>
+                                    <h2 class="lined -bot">Enrollment</h2>
                             </div>
 
 
-                            <div style="padding:0 40px;margin-bottom:30px">
-                                <ul class="list-chip">
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://awaiver.com/Sign/1154" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-tasks"></i>
-                                                <span class="title" style="padding-top:10px">Adult Waiver</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://app.iclasspro.com/parentportal/motus/classes" target="_blank" style="color:#fff;">
-                                                <i class="far fa-calendar-alt"></i>
-                                                <span class="title" style="padding-top:10px">Schedule</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://awaiver.com/Sign/1153" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-tasks"></i>
-                                                <span class="title" style="padding-top:10px">Kid Waiver</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon-wrap">
-                                            <a href="https://app.iclasspro.com/parentportal/motus" target="_blank" style="color:#fff;">
-                                                <i class="fas fa-sign-in-alt"></i>
-                                                <span class="title" style="padding-top:10px">Enroll</span>
-                                            </a>
-                                        </div>
-                                    </li>
-                                 </ul>
+
+                        <div class="row">
+
+                                <div class="col-xs-6 col-md-6 col-lg-10">
+                                    <ul class="list-chip">
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="/documents/1/MF_Adult_Waiver.pdf" style="color:#fff;">
+                                                    <i class="fas fa-tasks"></i>
+                                                    <span class="title" style="font-weight:400">Adult Waiver</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://app.iclasspro.com/parentportal/motus/classes" target="_blank" style="color:#fff;">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    <span class="title" style="font-weight:400">Schedule</span>
+                                                </a>
+                                            </div>
+                                        </li>
+
+                                     </ul>
+                                </div>
+                                <div class="col-xs-6 col-md-6 col-lg-10">
+                                    <ul class="list-chip">
+
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="/documents/2/MF_child_Waiver.pdf" target="_blank" style="color:#fff;">
+                                                    <i class="fas fa-tasks"></i>
+                                                    <span class="title" style="font-weight:400">Kid Waiver</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon-wrap">
+                                                <a href="https://app.iclasspro.com/parentportal/motus" target="_blank" style="color:#fff;">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                    <span class="title" style="font-weight:400">Parent Portal</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                     </ul>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-lg-8 mobile-hide" id="to-gallery">
+                        <div class="col-md-6 col-lg-8 mobile-hide">
                                  <div class="section-heading">
                                     <h2 class="lined -bot">Gallery</h2>
                                 </div>
@@ -311,9 +325,9 @@
                             <div class="offset-lg-1 col-lg-10 col-md-12">
                                 <div class="section-heading d-flex justify-content-between align-items-center">
                                     <h2 class="lined -bot">{{ page.featured_section_3_title }}</h2>
-                                    <div class="title-link">
+                                    <div class="title-link" style="text-align: right;">
                                         <a class="link" href="{% pageurl page.featured_section_3 %}">
-                                            <span>View all trainers</span>
+                                            <span>All trainers</span>
                                             <i class="fa fa-arrow-right"></i>
                                         </a>
                                     </div>
@@ -329,14 +343,14 @@
                         <div class="col-lg-12">
                             <div class="slider-stories slider-stories-home02">
 
-                                {% for coach in page.featured_section_3.specific.children|slice:"10"%}
+                               {% for coach in page.featured_section_3.specific.children|slice:"10"%}
 
                                 <div>
                                     <div class="item">
                                         <div class="item-aside">
                                             <div class="img-wrap">
                                                 {% if coach.header_image %}
-                                                {% image coach.header_image fill-300x300-c100 as header_image %}
+                                                {% image coach.header_image fill-300x300-c100 format-jpeg jpegquality-40 as header_image %}
                                                 <img src="{{ header_image.url }}" alt="">
                                                 {% endif %}
                                             </div>
@@ -385,12 +399,12 @@
 
                                 {% for post in page.featured_section_2.specific.children|slice:"3" %}
 
-                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="2010-09-14" data-title="Yoga">
+                                <div class="col -third filter-item" data-groups="[&quot;trainers&quot;, &quot;classes&quot;]" data-date-created="{{ post.specific.date }}" data-title="Motus Events">
                                     <div class="blog-item -default -no-shadow">
                                         <div class="_header">
                                             <a class="img-wrap relative" href="{% pageurl post %}">
                                                 {% if post.specific.header_image %}
-                                                            {% image post.header_image max-500x200 as header_image %}
+                                                            {% image post.header_image max-500x200 format-jpeg jpegquality-40 as header_image %}
                                                                 <img src="{{ header_image.url }}" alt="">
                                                 {% endif %}
                                                 <h4 class="title -bottom">{{ post.title }}</h4>
@@ -413,14 +427,13 @@
 
 						</div>
 
-
 					</div>
                     </div>
 
 					<div class="row">
 						<div class="col-md-12 text-center" style="margin-top:25px">
 							<a class="btn btn-secondary" href="{% pageurl page.featured_section_2 %}">
-								<span>More stories</span>
+								<span>More Events</span>
 								<i class="fa fa-arrow-right"></i>
 							</a>
 						</div>
@@ -443,9 +456,9 @@
                         </div>
                         <ul class="list-location">
                         <li>
-                            <ul class="list-contact" style="margin-left:10px">
+                            <ul class="list-contact" style="margin-top:50px">
                                 <li>
-                                    <i class="fa fa-map-marker"></i><span style="font-weight: bold;">725 NW Commerce Dr, Lee's Summit, MO 64086</span>
+                                    <i style="margin-left:15px" class="fa fa-map-marker"></i><span>725 NW Commerce Dr, Lee's Summit, MO 64086</span>
                                 </li>
                             </ul>
                         </li>
@@ -459,8 +472,7 @@
 
                     <div class="section-contact -home04" id="to-contact">
 
-
-                        <div class="halfheight bg-img04 -bordered">
+                        <div class="halfheight bg-img-form -bordered">
 
                             <div class="section-heading "></div>
                             <form class="form-contact" action="{% pageurl page.contact_us_page.specific %}" method="POST">
@@ -470,6 +482,7 @@
                                 </div>
 
                                 {% csrf_token %}
+
                                 {{form}}
 
                                 <!---->
@@ -486,8 +499,9 @@
                                 <div class="col-md-3 col-sm-6 justify-content-center">
 
                                     <div class="item-contact">
-                                            <h5 class="" style="margin-top:15px">Working Hours</h5>
-                                        <p>Mon - Sat: 10:00 - 18:00</p>
+                                            <h5 class="" style="margin-top:15px">Office Hours</h5>
+                                        <p style="margin-bottom: 0;">Monday-Friday: 10am-8pm</p>
+                                        <p>Saturday: 12pm-7pm</p>
                                     </div>
 
                                     <div class="item-contact">
@@ -522,7 +536,7 @@
                         <h2 class="lined d-inline-block">Social Activity</h2>
                     </div>
                     <div id="fb-root" style="margin-left:10px">
-                        <div class="fb-page" data-href="https://www.facebook.com/motusninja" data-tabs="timeline" data-width="400" data-height="1000" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/motusfitls" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/motusfitls">Motus Fit</a></blockquote></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/motusninjawarrior" data-tabs="timeline" data-width="400" data-height="1000" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/motusfitls" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/motusfitls">Motus Fit</a></blockquote></div>
                     </div>
                 </div>
 
@@ -536,19 +550,21 @@
 
 
 	    {% block extra_js %}
+
             {# Override this in templates to add extra javascript #}
             <script type="text/javascript" src="{% static 'js/instafeed/instafeed.min.js' %}"></script>
             <script type="text/javascript">
+                {% verbatim %}
                 var feed = new Instafeed({
                     get: 'user',
-                    userId: '287904803',
-                    accessToken: '287904803.57f59c4.57ebfed064c24b10adda595fe7200b69',
+                    userId: '7083891990',
+                    accessToken: '7083891990.049bc23.907dedd731d84f70b351b4ef81758d43',
+                    template: '<a href="{{link}}"><img src="{{image}}" /></a>',
                     limit:'14'
                 });
+                {% endverbatim %}
                 feed.run();
             </script>
-
-
             <script>(function(d, s, id) {
               var js, fjs = d.getElementsByTagName(s)[0];
               if (d.getElementById(id)) return;

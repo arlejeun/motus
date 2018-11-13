@@ -26,7 +26,7 @@
 
 							{% for post in page.get_children %}
 
-							{% image post.specific.header_image max-1000x500 as my_image %}
+							{% image post.specific.header_image max-1000x500 format-jpeg jpegquality-40 as my_image %}
 
 								<div class="item col-xl-4 col-lg-4 col-md-6 col-sm-12">
 									<a class="img-wrap" href="{% pageurl post %}" style="background-image:url({{ my_image.url }})"></a>
