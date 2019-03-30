@@ -101,12 +101,14 @@
 
                 <div class="section-heading "></div>
                 <form class="form-contact" action="{% pageurl page.specific %}" method="POST">
-                    <div class="section-heading text-center">
+                    
+			{% csrf_token %}
+			
+			<div class="section-heading text-center">
                         <h2 class="lined -bot d-inline-block">{{ page.title }}</h2>
                         <p class="subheading">{{ page.specific.intro|richtext }}</p>
                     </div>
 
-                    {% csrf_token %}
 
                     {% if form.non_field_errors %}
                       <div class="alert alert-danger" role="alert">

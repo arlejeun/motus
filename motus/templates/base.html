@@ -18,7 +18,6 @@
         <link rel="shortcut icon" href="{% static 'images/logo.png' %}">
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/pages/_theme04.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/motus.css' %}">
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
@@ -28,6 +27,9 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
 
+		<meta name="google-site-verification" content="GVK4MZkqfUrgN7q0l194pLqY0aQETrzVYr2InyauySw" />
+		<meta name="google-site-verification" content="QpOEFa7k8RW5POuCtyNbhcZ4EgeapGRIwuQ_0aMSRyM" />
+		<meta name="msvalidate.01" content="84DA613A5E8E77E801D81B011A781AE8" />
 		<meta property="og:title" content="Motus Ninja Warrior Official Website" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://motusninjawarrior.com" />
@@ -50,10 +52,6 @@
     </head>
 
 
-    {% load cache %}
-
-    {% cache 900 base request.path request.user.username self.pk self.latest_revision_created_at|date:"c" %}
-
 
     <body class="{% block body_class %}{% endblock %} theme04">
 
@@ -67,7 +65,7 @@
 					<i class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand" href="/">
-					<img src="{% static 'images/motusfit_logo.jpg' format-jpeg jpegquality-40 %}" alt="">
+					<img src="{% static 'images/Motus_logo_bk.png' max-80x80 %}" alt="">
 				</a>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent" aria-expanded="false">
 					<ul class="navbar-nav m-auto" id="navbar-scrollspy">
@@ -149,6 +147,5 @@
         {% endblock %}
     </body>
 
-    {% endcache %}
 
 </html>
