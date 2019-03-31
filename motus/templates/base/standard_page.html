@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags wagtailroutablepage_tags blogapp_tags i18n %}
+
+{% block content %}
+
+<main class="main">
+
+        <section class="section-blog_page">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <h2 class="blog-title">{{ page.title }}</h2>                                
+                        <div class="blog-content">
+                            <p>{{ page.introduction}}</p>
+                                {% if page.image %}
+                                    {% image page.image max-1000x500 format-jpeg as header_image %}
+                                    <img class="blog-img" src="{{ image.url }}" alt="">
+                                    <br>
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-7">
+                        {{ page.body }} 
+                    </div>
+                    <div class="col-xs-12 col-md-5">
+                        {{ page.body }}
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+    </main>
+
+{% endblock content %}

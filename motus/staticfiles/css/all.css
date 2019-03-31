@@ -12540,15 +12540,16 @@ select.bs-select-hidden, select.selectpicker {
 }
 
 .theme04 .btn-secondary {
-  background: #2ce41f;
-  border-color: #2ce41f;
-  color: #000;
+  background: #F0F0F0;
+  border-color: #f0f0f0;
+  color: #636c72;
 }
 
+
 .theme04 .btn-secondary:hover, .theme04 .btn-secondary:focus, .theme04 .btn-secondary:focus:active {
-  background-color: #e3bb0b;
-  border-color: #e3bb0b;
-  color: #000;
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  color: #2ce41f;
 }
 
 .theme04 .btn-primary {
@@ -12558,9 +12559,9 @@ select.bs-select-hidden, select.selectpicker {
 }
 
 .theme04 .btn-primary:hover, .theme04 .btn-primary:focus, .theme04 .btn-primary:focus:active {
-  background-color: #2ce41f;
-  border-color: #2ce41f;
-  color: #000;
+  background-color: #2ce41fc4;
+  border-color: #2ce41fc4;
+  color: #636c72;
 }
 
 .theme04 .lined:before {

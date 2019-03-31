@@ -628,3 +628,15 @@ Main Components
   opacity: 1;
   visibility: visible;
 }
+
+.block-paragraph_block .rich-text ol {
+      padding: 0;
+      margin: 0;
+      list-style-type: decimal;
+}
+
+.block-paragraph_block .rich-text ul {
+  padding-left: 15px;
+  margin: 0;
+  list-style-type: disc;
+}
